@@ -16,6 +16,8 @@
 		03417E4328F07CB300C17101 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */; };
 		03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4628F07CDF00C17101 /* LoginViewController.swift */; };
 		03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4928F07DD900C17101 /* SignUpViewController.swift */; };
+		8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBA28F9BC860008652D /* UserProfileViewController.swift */; };
+		8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBC28F9BC980008652D /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		03417E4628F07CDF00C17101 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		03417E4928F07DD900C17101 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8C695CBA28F9BC860008652D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		8C695CBC28F9BC980008652D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +73,21 @@
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,
+				8C695CBF28F9BEA90008652D /* Sarah */,
 				03417E3528F07ABB00C17101 /* Assets.xcassets */,
 				03417E3728F07ABB00C17101 /* LaunchScreen.storyboard */,
 				03417E3A28F07ABB00C17101 /* Info.plist */,
 			);
 			path = SemesterProject;
+			sourceTree = "<group>";
+		};
+		8C695CBF28F9BEA90008652D /* Sarah */ = {
+			isa = PBXGroup;
+			children = (
+				8C695CBA28F9BC860008652D /* UserProfileViewController.swift */,
+				8C695CBC28F9BC980008652D /* SettingsViewController.swift */,
+			);
+			path = Sarah;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +162,12 @@
 			files = (
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
+				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
 				03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */,
 				03417E4328F07CB300C17101 /* NotificationsTableViewController.swift in Sources */,
 				03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */,
 				03417E2F28F07AB800C17101 /* SceneDelegate.swift in Sources */,
+				8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
