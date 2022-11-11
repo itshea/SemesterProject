@@ -672,7 +672,11 @@
                                 </prototypes>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qc2-M1-3b3">
+<<<<<<< Updated upstream
                                 <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+=======
+                                <rect key="frame" x="-3" y="48" width="416" height="44"/>
+>>>>>>> Stashed changes
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.36912274360000003" green="0.57841736079999995" blue="0.43527451160000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -684,36 +688,6 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
-                            </navigationBar>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="I5s-kf-5sD">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Yg4-dx-5Xu" id="z95-BX-zhu"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="HiD-MU-qoC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="Rex-XU-gcO" id="hWo-Dc-pjI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ido-dH-xFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Rex-XU-gcO">
-                    <connections>
-                        <outlet property="delegate" destination="Yg4-dx-5Xu" id="g7c-b1-YaU"/>
-                        <outlet property="searchBar" destination="I5s-kf-5sD" id="Onb-4p-bas"/>
-                        <outlet property="searchContentsController" destination="Yg4-dx-5Xu" id="4CC-4E-Mib"/>
-                        <outlet property="searchResultsDataSource" destination="Yg4-dx-5Xu" id="WaJ-oH-TOz"/>
-                        <outlet property="searchResultsDelegate" destination="Yg4-dx-5Xu" id="zsS-wb-oXJ"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="2283" y="-776"/>
-        </scene>
         <!--View List View Controller-->
         <scene sceneID="ZAD-qV-9LG">
             <objects>
@@ -738,7 +712,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-Yi-g8p">
-                                <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                                <rect key="frame" x="-4" y="48" width="416" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.36912274360000003" green="0.57841736079999995" blue="0.43527451160000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -765,19 +739,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="sIe-Ig-qkc"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="Rex-XU-gcO" id="FZV-c7-IdZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Q7-8t-TOH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Mu1-Xq-2nk">
-                    <connections>
-                        <outlet property="delegate" destination="SH6-A4-mMG" id="Mi2-b5-zLx"/>
-                        <outlet property="searchContentsController" destination="SH6-A4-mMG" id="GaQ-KC-JRO"/>
-                        <outlet property="searchResultsDataSource" destination="SH6-A4-mMG" id="Hid-OY-VPs"/>
-                        <outlet property="searchResultsDelegate" destination="SH6-A4-mMG" id="BqX-Hh-C4q"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3068" y="-1080"/>
         </scene>
