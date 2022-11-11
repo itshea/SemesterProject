@@ -12,13 +12,13 @@
         <!--Navigation Controller-->
         <scene sceneID="ot8-89-jCO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oG8-hZ-m0T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="mYk-aF-Buj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g5u-cr-mcm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oG8-hZ-m0T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-632" y="78"/>
         </scene>
@@ -382,7 +382,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEE-zi-T2P">
-                                <rect key="frame" x="146" y="188" width="122" height="51"/>
+                                <rect key="frame" x="146" y="167" width="122" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
@@ -439,11 +439,23 @@
                                     <segue destination="spv-2M-k1k" kind="show" identifier="CreateAccountSegue" id="O3h-62-XEH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error message label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taN-3G-vWB">
+                                <rect key="frame" x="132" y="226" width="151" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aGd-Zq-HqB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Elx-FX-cfV"/>
+                    <connections>
+                        <outlet property="emailInput" destination="Vdx-Ag-Zyu" id="ZV9-qP-HOB"/>
+                        <outlet property="errorMessage" destination="taN-3G-vWB" id="gP5-gM-a2s"/>
+                        <outlet property="passInput" destination="ZEz-sp-u2f" id="yoP-hL-mj5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ec1-GT-Xsk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
