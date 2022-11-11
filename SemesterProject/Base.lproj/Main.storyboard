@@ -652,15 +652,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="8AS-m6-kfE" style="IBUITableViewCellStyleDefault" id="dyZ-Rh-4xz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="8AS-m6-kfE" style="IBUITableViewCellStyleDefault" id="dyZ-Rh-4xz">
                                         <rect key="frame" x="0.0" y="50" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dyZ-Rh-4xz" id="jrs-Cz-dOU">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8AS-m6-kfE">
-                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="315.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -678,12 +678,9 @@
                                     <color key="textColor" red="0.36912274360000003" green="0.57841736079999995" blue="0.43527451160000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="LIST" id="gzG-Q1-J4b">
+                                    <navigationItem title="LISTS" id="gzG-Q1-J4b">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9Wf-e1-qwQ">
                                             <color key="tintColor" red="0.36912274360000003" green="0.57841736079999995" blue="0.43527451160000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <connections>
-                                                <segue destination="SH6-A4-mMG" kind="show" identifier="AddNewList" id="KfC-Cn-On7"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -715,14 +712,29 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2748" y="-431"/>
+            <point key="canvasLocation" x="2283" y="-776"/>
+        </scene>
+        <!--View List View Controller-->
+        <scene sceneID="ZAD-qV-9LG">
+            <objects>
+                <viewController id="fMT-NP-uk1" customClass="ViewListViewController" customModule="SemesterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qoM-20-rry">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="15h-E8-zfg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P25-hf-gaW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3068" y="-419"/>
         </scene>
         <!--Add List View Controller-->
         <scene sceneID="kRa-XU-HzZ">
             <objects>
                 <viewController id="SH6-A4-mMG" customClass="AddListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fHX-Dg-I6d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-Yi-g8p">
@@ -767,7 +779,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3489.8550724637685" y="-431.25"/>
+            <point key="canvasLocation" x="3068" y="-1080"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
