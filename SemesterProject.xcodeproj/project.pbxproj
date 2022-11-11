@@ -18,6 +18,7 @@
 		03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4928F07DD900C17101 /* SignUpViewController.swift */; };
 		8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBA28F9BC860008652D /* UserProfileViewController.swift */; };
 		8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBC28F9BC980008652D /* SettingsViewController.swift */; };
+		8CE8367F291EA3E9006F4B46 /* AllergiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8367E291EA3E9006F4B46 /* AllergiesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		03417E4928F07DD900C17101 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C695CBA28F9BC860008652D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		8C695CBC28F9BC980008652D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8CE8367E291EA3E9006F4B46 /* AllergiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				8C695CBA28F9BC860008652D /* UserProfileViewController.swift */,
+				8CE8367E291EA3E9006F4B46 /* AllergiesTableViewController.swift */,
 				8C695CBC28F9BC980008652D /* SettingsViewController.swift */,
 			);
 			path = Sarah;
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CE8367F291EA3E9006F4B46 /* AllergiesTableViewController.swift in Sources */,
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
