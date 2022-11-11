@@ -9,6 +9,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ot8-89-jCO">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oG8-hZ-m0T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="mYk-aF-Buj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g5u-cr-mcm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-632" y="78"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -27,7 +40,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="sKb-cm-v05">
             <objects>
-                <viewController title="Sign Up View Controller" id="spv-2M-k1k" sceneMemberID="viewController">
+                <viewController title="Sign Up View Controller" modalPresentationStyle="fullScreen" id="spv-2M-k1k" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cje-rN-iBz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,11 +133,15 @@
                                 <rect key="frame" x="185" y="761" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="LOGIN"/>
+                                <connections>
+                                    <segue destination="7N4-Yw-VT9" kind="show" identifier="LoginSegue" id="QfV-RL-cww"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="npq-WJ-aJr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6uF-qf-HS1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHR-eb-xq6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -359,7 +376,7 @@
         <!--Login View Controller-->
         <scene sceneID="PQH-vm-O3H">
             <objects>
-                <viewController title="Login View Controller" id="7N4-Yw-VT9" customClass="LoginViewController" customModule="SemesterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login View Controller" modalPresentationStyle="fullScreen" id="7N4-Yw-VT9" customClass="LoginViewController" customModule="SemesterProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="buZ-s7-5cz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,11 +435,15 @@
                                 <rect key="frame" x="177" y="597" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SIGN UP"/>
+                                <connections>
+                                    <segue destination="spv-2M-k1k" kind="show" identifier="CreateAccountSegue" id="O3h-62-XEH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aGd-Zq-HqB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Elx-FX-cfV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ec1-GT-Xsk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -469,6 +490,9 @@
             <point key="canvasLocation" x="1572" y="78"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="O3h-62-XEH"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="circlebadge" catalog="system" width="128" height="120"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
