@@ -189,6 +189,7 @@
                     <navigationItem key="navigationItem" id="6uF-qf-HS1"/>
                     <connections>
                         <outlet property="email" destination="wts-cO-OXg" id="DnZ-9H-FIm"/>
+                        <outlet property="error" destination="6mU-hd-cBo" id="s3d-5D-RN2"/>
                         <outlet property="firstName" destination="ZKx-8J-KM0" id="A3P-Iw-ffm"/>
                         <outlet property="lastName" destination="fgW-Mi-Uer" id="qSQ-3U-iuN"/>
                         <outlet property="pass" destination="AbO-Fr-UFZ" id="ZeN-9E-xj5"/>
@@ -562,7 +563,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tzP-V1-XT6"/>
+        <segue reference="QfV-RL-cww"/>
         <segue reference="0Zj-we-iz5"/>
     </inferredMetricsTieBreakers>
     <resources>
