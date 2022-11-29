@@ -7,32 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		033FA1FE291EABE8009B1B47 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 033FA1FD291EABE8009B1B47 /* FirebaseAuth */; };
+		033D5E92293580D200993553 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033D5E91293580D200993553 /* MyTableViewCell.swift */; };
+		033D5EA32936A35E00993553 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033D5EA22936A35E00993553 /* NotificationsViewController.swift */; };
+		033FA1F5291EA4A4009B1B47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033FA1F4291EA4A4009B1B47 /* GoogleService-Info.plist */; };
+		033FA1F9291EA696009B1B47 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 033FA1F8291EA696009B1B47 /* FirebaseAuth */; };
 		03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E2C28F07AB800C17101 /* AppDelegate.swift */; };
 		03417E2F28F07AB800C17101 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E2E28F07AB800C17101 /* SceneDelegate.swift */; };
 		03417E3128F07AB800C17101 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E3028F07AB800C17101 /* ViewController.swift */; };
 		03417E3428F07AB800C17101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03417E3228F07AB800C17101 /* Main.storyboard */; };
 		03417E3628F07ABB00C17101 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03417E3528F07ABB00C17101 /* Assets.xcassets */; };
 		03417E3928F07ABB00C17101 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03417E3728F07ABB00C17101 /* LaunchScreen.storyboard */; };
-		03417E4328F07CB300C17101 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */; };
 		03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4628F07CDF00C17101 /* LoginViewController.swift */; };
 		03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4928F07DD900C17101 /* SignUpViewController.swift */; };
-		8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4277DA293482D800D8D057 /* UserProfileNavigationController.swift */; };
-		8C4277DD293484B300D8D057 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4277DC293484B300D8D057 /* SettingsNavigationController.swift */; };
 		8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBA28F9BC860008652D /* UserProfileViewController.swift */; };
 		8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBC28F9BC980008652D /* SettingsViewController.swift */; };
-		8CB1B8772931DFAD00BA1CF9 /* AddAllergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1B8762931DFAD00BA1CF9 /* AddAllergyViewController.swift */; };
-		8CB1B8792931F10200BA1CF9 /* DietaryRestrictionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1B8782931F10200BA1CF9 /* DietaryRestrictionsViewController.swift */; };
-		8CCB9CED293366DA000511F9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB9CEC293366DA000511F9 /* ChangePasswordViewController.swift */; };
-		8CCB9CEF29336715000511F9 /* NotificationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB9CEE29336715000511F9 /* NotificationSchedulerViewController.swift */; };
-		8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */; };
-		8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */; };
-		8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */; };
-		BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635A293527BF001F09F1 /* CalendarViewController.swift */; };
-		BCBD635D29352AE0001F09F1 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		033D5E91293580D200993553 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		033D5EA22936A35E00993553 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		033FA1F4291EA4A4009B1B47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03417E2928F07AB800C17101 /* SemesterProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SemesterProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03417E2C28F07AB800C17101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03417E2E28F07AB800C17101 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,24 +35,10 @@
 		03417E3528F07ABB00C17101 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03417E3828F07ABB00C17101 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03417E3A28F07ABB00C17101 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		03417E4628F07CDF00C17101 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		03417E4928F07DD900C17101 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		8C4277DA293482D800D8D057 /* UserProfileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNavigationController.swift; sourceTree = "<group>"; };
-		8C4277DC293484B300D8D057 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		8C695CBA28F9BC860008652D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		8C695CBC28F9BC980008652D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		8CB1B8762931DFAD00BA1CF9 /* AddAllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAllergyViewController.swift; sourceTree = "<group>"; };
-		8CB1B8782931F10200BA1CF9 /* DietaryRestrictionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryRestrictionsViewController.swift; sourceTree = "<group>"; };
-		8CCB9CEC293366DA000511F9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
-		8CCB9CEE29336715000511F9 /* NotificationSchedulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedulerViewController.swift; sourceTree = "<group>"; };
-		8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesTableViewController.swift; sourceTree = "<group>"; };
-		8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesTableViewCell.swift; sourceTree = "<group>"; };
-		8EC405DA291EA1AD00C54D37 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
-		8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewListViewController.swift; sourceTree = "<group>"; };
-		BCBD635A293527BF001F09F1 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				033FA1FE291EABE8009B1B47 /* FirebaseAuth in Frameworks */,
+				033FA1F9291EA696009B1B47 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,22 +72,19 @@
 		03417E2B28F07AB800C17101 /* SemesterProject */ = {
 			isa = PBXGroup;
 			children = (
-				BCBD635A293527BF001F09F1 /* CalendarViewController.swift */,
-				BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */,
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
-				03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */,
 				03417E4628F07CDF00C17101 /* LoginViewController.swift */,
-				8EC405DA291EA1AD00C54D37 /* ListViewController.swift */,
-				8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */,
-				8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */,
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,
+				033D5EA22936A35E00993553 /* NotificationsViewController.swift */,
+				033D5E91293580D200993553 /* MyTableViewCell.swift */,
 				8C695CBF28F9BEA90008652D /* Sarah */,
 				03417E3528F07ABB00C17101 /* Assets.xcassets */,
 				03417E3728F07ABB00C17101 /* LaunchScreen.storyboard */,
 				03417E3A28F07ABB00C17101 /* Info.plist */,
+				033FA1F4291EA4A4009B1B47 /* GoogleService-Info.plist */,
 			);
 			path = SemesterProject;
 			sourceTree = "<group>";
@@ -115,16 +92,8 @@
 		8C695CBF28F9BEA90008652D /* Sarah */ = {
 			isa = PBXGroup;
 			children = (
-				8C4277DC293484B300D8D057 /* SettingsNavigationController.swift */,
-				8C695CBC28F9BC980008652D /* SettingsViewController.swift */,
-				8CCB9CEC293366DA000511F9 /* ChangePasswordViewController.swift */,
-				8CCB9CEE29336715000511F9 /* NotificationSchedulerViewController.swift */,
-				8C4277DA293482D800D8D057 /* UserProfileNavigationController.swift */,
 				8C695CBA28F9BC860008652D /* UserProfileViewController.swift */,
-				8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */,
-				8CB1B8762931DFAD00BA1CF9 /* AddAllergyViewController.swift */,
-				8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */,
-				8CB1B8782931F10200BA1CF9 /* DietaryRestrictionsViewController.swift */,
+				8C695CBC28F9BC980008652D /* SettingsViewController.swift */,
 			);
 			path = Sarah;
 			sourceTree = "<group>";
@@ -146,7 +115,7 @@
 			);
 			name = SemesterProject;
 			packageProductDependencies = (
-				033FA1FD291EABE8009B1B47 /* FirebaseAuth */,
+				033FA1F8291EA696009B1B47 /* FirebaseAuth */,
 			);
 			productName = SemesterProject;
 			productReference = 03417E2928F07AB800C17101 /* SemesterProject.app */;
@@ -176,7 +145,7 @@
 			);
 			mainGroup = 03417E2028F07AB800C17101;
 			packageReferences = (
-				033FA1FC291EABE8009B1B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				033FA1F7291EA696009B1B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 03417E2A28F07AB800C17101 /* Products */;
 			projectDirPath = "";
@@ -193,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03417E3928F07ABB00C17101 /* LaunchScreen.storyboard in Resources */,
+				033FA1F5291EA4A4009B1B47 /* GoogleService-Info.plist in Resources */,
 				03417E3628F07ABB00C17101 /* Assets.xcassets in Resources */,
 				03417E3428F07AB800C17101 /* Main.storyboard in Resources */,
 			);
@@ -205,25 +175,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */,
-				BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */,
+				033D5EA32936A35E00993553 /* NotificationsViewController.swift in Sources */,
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
-				8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */,
-				8CCB9CEF29336715000511F9 /* NotificationSchedulerViewController.swift in Sources */,
 				03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */,
-				8CB1B8772931DFAD00BA1CF9 /* AddAllergyViewController.swift in Sources */,
-				8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */,
-				8C4277DD293484B300D8D057 /* SettingsNavigationController.swift in Sources */,
-				03417E4328F07CB300C17101 /* NotificationsTableViewController.swift in Sources */,
-				8CB1B8792931F10200BA1CF9 /* DietaryRestrictionsViewController.swift in Sources */,
+				033D5E92293580D200993553 /* MyTableViewCell.swift in Sources */,
 				03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */,
 				03417E2F28F07AB800C17101 /* SceneDelegate.swift in Sources */,
-				8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */,
 				8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */,
-				8CCB9CED293366DA000511F9 /* ChangePasswordViewController.swift in Sources */,
-				BCBD635D29352AE0001F09F1 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +331,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8P3R6L94HT;
 				INFOPLIST_FILE = SemesterProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,7 +349,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8P3R6L94HT;
 				INFOPLIST_FILE = SemesterProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -427,7 +385,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		033FA1FC291EABE8009B1B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		033FA1F7291EA696009B1B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -438,9 +396,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		033FA1FD291EABE8009B1B47 /* FirebaseAuth */ = {
+		033FA1F8291EA696009B1B47 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 033FA1FC291EABE8009B1B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 033FA1F7291EA696009B1B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
