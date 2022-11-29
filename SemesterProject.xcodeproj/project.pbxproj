@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				BCBD635A293527BF001F09F1 /* CalendarViewController.swift */,
-				BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */,
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
 				03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */,
@@ -101,6 +100,7 @@
 				8EC405DA291EA1AD00C54D37 /* ListViewController.swift */,
 				8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */,
 				8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */,
+				BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */,
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,

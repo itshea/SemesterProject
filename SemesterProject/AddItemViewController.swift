@@ -2,28 +2,63 @@
 //  AddItemViewController.swift
 //  SemesterProject
 //
-//  Created by Hana Bredstein on 11/28/22.
+//  Created by Jennifer Wei on 11/28/22.
 //
 
 import UIKit
 
 class AddItemViewController: UIViewController {
-
+    // IB outlets
+    @IBOutlet weak var textField: UITextField!
+    
+    // variables
+    var delegate: UIViewController!
+    var listKey:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addItemButtonPressed(_ sender: Any) {
+        // blank
+        if (textField.text!.replacingOccurrences(of: " ", with: "") == "") {
+            let controller = UIAlertController(
+                title: "Missing item name",
+                message: "Please enter an item",
+                preferredStyle: .alert)
+            controller.addAction(UIAlertAction(
+                title: "OK",
+                style: .default))
+            present(controller, animated: true)
+        }
+        // item already exists
+        else if itemsDict[listKey]?.firstIndex(of: textField.text!) != nil {
+            // alert
+            let controller = UIAlertController(
+                title: "Item already exists",
+                message: "Please enter a new item",
+                preferredStyle: .alert)
+            controller.addAction(UIAlertAction(
+                title: "OK",
+                style: .default))
+            present(controller, animated: true)
+        } else {
+            if var arr = itemsDict[listKey] {
+                arr.append(textField.text!)
+                itemsDict[listKey] = arr
+            }
+            
+            // reload table via delegate/protocol
+            let otherVC = delegate as! ItemAdder
+            otherVC.addItem()
+            
+            // automatically go back
+            if let nav = self.navigationController {
+                nav.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
-    */
 
 }
