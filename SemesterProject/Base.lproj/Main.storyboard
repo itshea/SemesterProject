@@ -707,10 +707,10 @@
             </objects>
             <point key="canvasLocation" x="3068" y="-1080"/>
         </scene>
-        <!--Add Item View Controller-->
+        <!--Add My Item View Controller-->
         <scene sceneID="h3n-Vu-fs1">
             <objects>
-                <viewController id="d82-o4-exp" customClass="AddItemViewController" customModule="SemesterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d82-o4-exp" customClass="AddMyItemViewController" customModule="SemesterProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gUI-xk-dvU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

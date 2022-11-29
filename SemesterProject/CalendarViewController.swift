@@ -91,7 +91,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyDateSegue",
-           let nextVC = segue.destination as? AddItemViewController{
+           let nextVC = segue.destination as? AddMyItemViewController{
             nextVC.delegate1 = self
         }
     }

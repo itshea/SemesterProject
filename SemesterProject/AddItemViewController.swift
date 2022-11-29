@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController {
+class AddMyItemViewController: UIViewController {
 
     var delegate1:UIViewController!
     var newDate:MyDate = MyDate()
