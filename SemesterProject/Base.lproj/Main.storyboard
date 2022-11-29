@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7ee-ib-2Ss">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -178,7 +178,7 @@
                     <navigationItem key="navigationItem" id="6uF-qf-HS1"/>
                     <connections>
                         <outlet property="email" destination="wts-cO-OXg" id="DnZ-9H-FIm"/>
-                        <outlet property="error" destination="6mU-hd-cBo" id="s3d-5D-RN2"/>
+                        <outlet property="errorMessage" destination="6mU-hd-cBo" id="SAy-qV-qtS"/>
                         <outlet property="firstName" destination="ZKx-8J-KM0" id="A3P-Iw-ffm"/>
                         <outlet property="lastName" destination="fgW-Mi-Uer" id="qSQ-3U-iuN"/>
                         <outlet property="pass" destination="AbO-Fr-UFZ" id="ZeN-9E-xj5"/>
@@ -577,7 +577,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="QfV-RL-cww"/>
-        <segue reference="O3h-62-XEH"/>
+        <segue reference="0Zj-we-iz5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circlebadge" catalog="system" width="128" height="120"/>
