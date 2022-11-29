@@ -28,8 +28,10 @@
 		8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */; };
 		8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */; };
 		8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */; };
+		BCBAD00329369C1C006F3C70 /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBAD00229369C1C006F3C70 /* MyDate.swift */; };
 		BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635A293527BF001F09F1 /* CalendarViewController.swift */; };
 		BCBD635D29352AE0001F09F1 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */; };
+		BCBD636029357D73001F09F1 /* Dates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635E29357D73001F09F1 /* Dates.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +59,10 @@
 		8EC405DA291EA1AD00C54D37 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewListViewController.swift; sourceTree = "<group>"; };
+		BCBAD00229369C1C006F3C70 /* MyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
 		BCBD635A293527BF001F09F1 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		BCBD635F29357D73001F09F1 /* Dates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dates.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				BCBD635A293527BF001F09F1 /* CalendarViewController.swift */,
+				BCBAD00229369C1C006F3C70 /* MyDate.swift */,
+				BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */,
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
 				03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */,
@@ -107,6 +113,7 @@
 				8C695CBF28F9BEA90008652D /* Sarah */,
 				03417E3528F07ABB00C17101 /* Assets.xcassets */,
 				03417E3728F07ABB00C17101 /* LaunchScreen.storyboard */,
+				BCBD635E29357D73001F09F1 /* Dates.xcdatamodeld */,
 				03417E3A28F07ABB00C17101 /* Info.plist */,
 			);
 			path = SemesterProject;
@@ -209,10 +216,12 @@
 				BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */,
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
+				BCBD636029357D73001F09F1 /* Dates.xcdatamodeld in Sources */,
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
 				8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */,
 				8CCB9CEF29336715000511F9 /* NotificationSchedulerViewController.swift in Sources */,
 				03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */,
+				BCBAD00329369C1C006F3C70 /* MyDate.swift in Sources */,
 				8CB1B8772931DFAD00BA1CF9 /* AddAllergyViewController.swift in Sources */,
 				8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */,
 				8C4277DD293484B300D8D057 /* SettingsNavigationController.swift in Sources */,
@@ -444,6 +453,19 @@
 			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BCBD635E29357D73001F09F1 /* Dates.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BCBD635F29357D73001F09F1 /* Dates.xcdatamodel */,
+			);
+			currentVersion = BCBD635F29357D73001F09F1 /* Dates.xcdatamodel */;
+			path = Dates.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 03417E2128F07AB800C17101 /* Project object */;
 }
