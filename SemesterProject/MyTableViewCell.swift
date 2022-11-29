@@ -24,4 +24,7 @@ class MyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    // removes item from notification list
+    @IBAction func readButtonTouch(_ sender: Any) {
+    }
 }

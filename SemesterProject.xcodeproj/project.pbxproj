@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		033D5E92293580D200993553 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033D5E91293580D200993553 /* MyTableViewCell.swift */; };
+		033D5EA32936A35E00993553 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033D5EA22936A35E00993553 /* NotificationsViewController.swift */; };
 		033FA1F5291EA4A4009B1B47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033FA1F4291EA4A4009B1B47 /* GoogleService-Info.plist */; };
 		033FA1F9291EA696009B1B47 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 033FA1F8291EA696009B1B47 /* FirebaseAuth */; };
 		03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E2C28F07AB800C17101 /* AppDelegate.swift */; };
@@ -16,7 +17,6 @@
 		03417E3428F07AB800C17101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03417E3228F07AB800C17101 /* Main.storyboard */; };
 		03417E3628F07ABB00C17101 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03417E3528F07ABB00C17101 /* Assets.xcassets */; };
 		03417E3928F07ABB00C17101 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03417E3728F07ABB00C17101 /* LaunchScreen.storyboard */; };
-		03417E4328F07CB300C17101 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */; };
 		03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4628F07CDF00C17101 /* LoginViewController.swift */; };
 		03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4928F07DD900C17101 /* SignUpViewController.swift */; };
 		8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBA28F9BC860008652D /* UserProfileViewController.swift */; };
@@ -25,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		033D5E91293580D200993553 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		033D5EA22936A35E00993553 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		033FA1F4291EA4A4009B1B47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03417E2928F07AB800C17101 /* SemesterProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SemesterProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03417E2C28F07AB800C17101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		03417E3528F07ABB00C17101 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03417E3828F07ABB00C17101 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03417E3A28F07ABB00C17101 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		03417E4628F07CDF00C17101 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		03417E4928F07DD900C17101 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C695CBA28F9BC860008652D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -74,11 +74,11 @@
 			children = (
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
-				03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */,
 				03417E4628F07CDF00C17101 /* LoginViewController.swift */,
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,
+				033D5EA22936A35E00993553 /* NotificationsViewController.swift */,
 				033D5E91293580D200993553 /* MyTableViewCell.swift */,
 				8C695CBF28F9BEA90008652D /* Sarah */,
 				03417E3528F07ABB00C17101 /* Assets.xcassets */,
@@ -175,11 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033D5EA32936A35E00993553 /* NotificationsViewController.swift in Sources */,
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
 				03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */,
-				03417E4328F07CB300C17101 /* NotificationsTableViewController.swift in Sources */,
 				033D5E92293580D200993553 /* MyTableViewCell.swift in Sources */,
 				03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */,
 				03417E2F28F07AB800C17101 /* SceneDelegate.swift in Sources */,
