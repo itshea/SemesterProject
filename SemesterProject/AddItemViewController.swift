@@ -2,93 +2,65 @@
 //  AddItemViewController.swift
 //  SemesterProject
 //
-//  Created by Hana Bredstein on 11/28/22.
+//  Created by Jennifer Wei on 11/28/22.
 //
 
 import UIKit
 
-class AddMyItemViewController: UIViewController {
+var itemsDict:[String: [String]] = [:]
 
-    var delegate1:UIViewController!
-    var newDate:MyDate = MyDate()
+class AddItemViewController: UIViewController {
+    // IB outlets
+    @IBOutlet weak var textField: UITextField!
     
-    @IBOutlet weak var DatePicker: UIDatePicker!
-    @IBOutlet weak var itemName: UITextField!
+    // variables
+    var delegate: UIViewController!
+    var listKey:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkDarkMode()
-        updateColor()
-        updateFontSize(resize:currentSettings.fontResize)
-
-
-        // Do any additional setup after loading the view.
     }
     
-    @IBAction func changedate(sender: AnyObject) {
-        let chosendate = self.DatePicker.date
-        newDate.date = chosendate
-    }
-
-    
-    @IBAction func newDoneButton(_ sender: Any) {
-        if itemName.text == nil {
+    @IBAction func addItemButtonPressed(_ sender: Any) {
+        // blank
+        if (textField.text!.replacingOccurrences(of: " ", with: "") == "") {
             let controller = UIAlertController(
-                title: "Missing Item Name",
-                message:"Please enter an item name.",
+                title: "Missing item name",
+                message: "Please enter an item",
                 preferredStyle: .alert)
             controller.addAction(UIAlertAction(
                 title: "OK",
                 style: .default))
             present(controller, animated: true)
-            return
+        }
+        // item already exists
+        else if itemsDict[listKey]?.firstIndex(of: textField.text!) != nil {
+            // alert
+            let controller = UIAlertController(
+                title: "Item already exists",
+                message: "Please enter a new item",
+                preferredStyle: .alert)
+            controller.addAction(UIAlertAction(
+                title: "OK",
+                style: .default))
+            present(controller, animated: true)
         } else {
-            newDate.name = itemName.text
-            newDate.date = self.DatePicker.date
+            if var arr = itemsDict[listKey] {
+                arr.append(textField.text!)
+                itemsDict[listKey] = arr
+            }
             
-            let mainVC = delegate1 as! DateAdder
-            mainVC.addDate(added:newDate)
-            newDate = MyDate()
+            // reload table via delegate/protocol
+            let otherVC = delegate as! ItemAdder
+            otherVC.addItem()
+            
+            // automatically go back
+            if let nav = self.navigationController {
+                nav.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
-
-
-    
-    
-    
-    
-    // dark mode settings
-    func checkDarkMode() {
-        if currentSettings.darkMode {
-            overrideUserInterfaceStyle = .dark
-        } else {
-            overrideUserInterfaceStyle = .light
-        }
-    }
-
-    
-    func updateFontSize(resize: CGFloat) {
-            // update bold fonts
-            itemName.font = UIFont.boldSystemFont(ofSize: resize*20)
-            //itemName.titleLabel?.font = UIFont.boldSystemFont(ofSize: resize*20)
-            // update non-bold fonts
-            itemName.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-            //itemName.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-    }
-    
-    func updateColor() {
-            DatePicker.setTitleColor(currentSettings.colorScheme, for: .normal)
-            DatePicker.textColor = currentSettings.colorScheme
-        }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
