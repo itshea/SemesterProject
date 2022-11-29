@@ -57,9 +57,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CREATE ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oo-Di-clQ">
-                                <rect key="frame" x="28" y="127" width="359" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oo-Di-clQ">
+                                <rect key="frame" x="27.5" y="127" width="359" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -159,8 +158,8 @@
                                     <segue destination="7N4-Yw-VT9" kind="show" identifier="LoginSegue" id="QfV-RL-cww"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mU-hd-cBo">
-                                <rect key="frame" x="0.0" y="186" width="414" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mU-hd-cBo">
+                                <rect key="frame" x="0.0" y="186" width="414" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -169,6 +168,9 @@
                         <viewLayoutGuide key="safeArea" id="npq-WJ-aJr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3Oo-Di-clQ" firstAttribute="centerX" secondItem="npq-WJ-aJr" secondAttribute="centerX" id="0rO-LE-mmO"/>
+                            <constraint firstItem="6mU-hd-cBo" firstAttribute="top" secondItem="3Oo-Di-clQ" secondAttribute="bottom" constant="8" symbolic="YES" id="dR8-cc-XgK"/>
+                            <constraint firstItem="3Oo-Di-clQ" firstAttribute="top" secondItem="npq-WJ-aJr" secondAttribute="top" constant="83" id="hOn-OH-QbR"/>
                             <constraint firstItem="6mU-hd-cBo" firstAttribute="leading" secondItem="npq-WJ-aJr" secondAttribute="leading" id="wjy-hV-tbt"/>
                             <constraint firstItem="npq-WJ-aJr" firstAttribute="trailing" secondItem="6mU-hd-cBo" secondAttribute="trailing" id="yy3-lQ-UTU"/>
                         </constraints>
@@ -422,9 +424,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEE-zi-T2P">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEE-zi-T2P">
                                 <rect key="frame" x="146" y="167" width="122" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -483,8 +484,8 @@
                                     <segue destination="spv-2M-k1k" kind="show" identifier="CreateAccountSegue" id="O3h-62-XEH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taN-3G-vWB">
-                                <rect key="frame" x="0.0" y="226" width="414" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taN-3G-vWB">
+                                <rect key="frame" x="0.0" y="226" width="414" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -493,7 +494,11 @@
                         <viewLayoutGuide key="safeArea" id="aGd-Zq-HqB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="taN-3G-vWB" firstAttribute="top" secondItem="QEE-zi-T2P" secondAttribute="bottom" constant="8" symbolic="YES" id="1S0-8W-ktq"/>
+                            <constraint firstItem="QEE-zi-T2P" firstAttribute="leading" secondItem="aGd-Zq-HqB" secondAttribute="leading" constant="146" id="Boh-6Z-Il1"/>
                             <constraint firstItem="aGd-Zq-HqB" firstAttribute="trailing" secondItem="taN-3G-vWB" secondAttribute="trailing" id="H5L-ES-TI7"/>
+                            <constraint firstItem="aGd-Zq-HqB" firstAttribute="trailing" secondItem="QEE-zi-T2P" secondAttribute="trailing" constant="146" id="ND4-FQ-wxZ"/>
+                            <constraint firstItem="QEE-zi-T2P" firstAttribute="top" secondItem="aGd-Zq-HqB" secondAttribute="top" constant="123" id="RQF-YS-HpG"/>
                             <constraint firstItem="taN-3G-vWB" firstAttribute="leading" secondItem="aGd-Zq-HqB" secondAttribute="leading" id="n9v-ga-VCC"/>
                         </constraints>
                     </view>
@@ -565,8 +570,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tzP-V1-XT6"/>
-        <segue reference="0Zj-we-iz5"/>
+        <segue reference="QfV-RL-cww"/>
+        <segue reference="O3h-62-XEH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circlebadge" catalog="system" width="128" height="120"/>
