@@ -32,7 +32,6 @@ class DietaryRestrictionsViewController: UIViewController, UITableViewDelegate, 
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         cell.textLabel?.text = dietTypes[row]
-        cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         // previously selected rows have checkmarks
         if currentUser.dietBool[row] == 0 {
             cell.accessoryType = .none
@@ -46,7 +45,6 @@ class DietaryRestrictionsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dietTableView.deselectRow(at: indexPath, animated: true)
         if let cell = dietTableView.cellForRow(at: indexPath as IndexPath) {
-            cell.tintColor = currentSettings.colorScheme
             // remove checkmark
             if cell.accessoryType == .checkmark {
                 cell.accessoryType = .none

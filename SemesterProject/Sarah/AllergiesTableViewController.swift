@@ -15,9 +15,9 @@ public struct Allergy {
     var severity = allergySeverityLevels[0]
 }
 
+
 class AllergiesTableViewController: UITableViewController {
     
-    @IBOutlet weak var allergiesNavBar: UINavigationItem!
     private let cellReuseIdentifier = "AllergyCell"
     
     override func viewDidLoad() {
@@ -41,21 +41,24 @@ class AllergiesTableViewController: UITableViewController {
         let cell:AllergiesTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! AllergiesTableViewCell
         let tempCell = currentUser.allergyList[row]
         cell.foodLabel?.text = tempCell.foodName
+        
+        
         cell.allergySeverityLabel?.text = tempCell.severity
-        // resize
-        cell.foodLabel.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
-        cell.allergySeverityLabel.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         // change text color based on severity level
         if tempCell.severity == "Mild" {
-            cell.allergySeverityLabel.textColor = greenColor
+            cell.allergySeverityLabel.textColor = UIColor(red: 27/255, green: 208/255, blue: 29/255, alpha: 1.0)
+            
         } else if tempCell.severity == "Moderate" {
-            cell.allergySeverityLabel.textColor = orangeColor
+            cell.allergySeverityLabel.textColor = UIColor(red: 233/255, green: 165/255, blue: 16/255, alpha: 1.0)
+            
         } else {
-            cell.allergySeverityLabel.textColor = redColor
+            cell.allergySeverityLabel.textColor = UIColor(red: 238/255, green: 65/255, blue: 12/255, alpha: 1.0)
+            
         }
         return cell
     }
     
+        
     // Add an allergy to the list
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddAllergySegue" {
@@ -100,6 +103,13 @@ class AllergiesTableViewController: UITableViewController {
 //                abort()
 //            }
         }
+    }
+    
+    func updateFontSize(resize: CGFloat) {
+        print("updating font")
+//        settingsLabel.font = UIFont.boldSystemFont(ofSize: resize*45)
+//        viewProfileButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+//        muteNotificationsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
     
     // dark mode settings

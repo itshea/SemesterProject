@@ -9,8 +9,6 @@ import UIKit
 
 class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    @IBOutlet weak var foodLabel: UILabel!
-    @IBOutlet weak var severityLabel: UILabel!
     @IBOutlet weak var severityPicker: UIPickerView!
     @IBOutlet weak var foodTextField: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
@@ -19,7 +17,6 @@ class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        warningLabel.textColor = currentSettings.colorScheme
         updateFontSize(resize:currentSettings.fontResize)
         checkDarkMode()
         severityPicker.delegate = self
@@ -71,10 +68,10 @@ class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func updateFontSize(resize: CGFloat) {
-        foodLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        severityLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        foodTextField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        warningLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        print("updating font")
+//        settingsLabel.font = UIFont.boldSystemFont(ofSize: resize*45)
+//        viewProfileButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+//        muteNotificationsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
     
     // dark mode settings

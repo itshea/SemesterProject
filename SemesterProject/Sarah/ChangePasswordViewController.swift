@@ -21,7 +21,6 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFontSize(resize:currentSettings.fontResize)
-        warningLabel.textColor = currentSettings.colorScheme
         checkDarkMode()
         oldPassword.isSecureTextEntry = true
         newPassword1.isSecureTextEntry = true
@@ -29,7 +28,6 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         oldPassword.delegate = self
         newPassword1.delegate = self
         newPassword2.delegate = self
-        warningLabel.textColor = currentSettings.colorScheme
     }
     
     // Called when 'return' key pressed
@@ -47,9 +45,6 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         if checkOldPassword() && checkNewPassword() && verifyPassword() {
             warningLabel.text = "Password changed successfully"
             currentUser.password = newPassword1.text!
-            oldPassword.text = ""
-            newPassword1.text = ""
-            newPassword2.text = ""
         }
     }
     
@@ -71,7 +66,7 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
                 return false
             }
         } else {
-            warningLabel.text = "New password must be at least 6 characters"
+            warningLabel.text = "Password must be at least 6 characters"
             return false
         }
     }

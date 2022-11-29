@@ -17,7 +17,6 @@ public struct User {
     var dietList: [String] = []
     var dietBool = [Int] (repeating: 0, count: dietTypes.count)
     var profilePicture:UIImage = defaultProfilePic!
-    var loggedIn = true
 }
 
 public var currentUser = User()
@@ -39,26 +38,32 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var profilePicButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     let picker = UIImagePickerController()
-    var chosenImage = defaultProfilePic
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFontSize(resize:currentSettings.fontResize)
         checkDarkMode()
-        updateNavBar()
         updateColor()
         picker.delegate = self
         firstNameField.delegate = self
         lastNameField.delegate = self
         
         // hide buttons for editing profile, prevent user from interacting with editing buttons
-        disableUserEdits()
+        saveButton.isHidden = true
+        discardButton.isHidden = true
+        profilePicButton.isHidden = true
+        saveButton.isUserInteractionEnabled = false
+        discardButton.isUserInteractionEnabled = false
+        profilePicButton.isUserInteractionEnabled = false
+        firstNameField.isUserInteractionEnabled = false
+        lastNameField.isUserInteractionEnabled = false
+        emailField.isUserInteractionEnabled = false
         // original user profile
         firstNameField.text = currentUser.firstName
         lastNameField.text = currentUser.lastName
         emailField.text = currentUser.email
         // circular profile picture
-        profilePicture.layer.borderWidth = 7
+        profilePicture.layer.borderWidth = 10
         profilePicture.layer.masksToBounds = false
         profilePicture.layer.borderColor = currentSettings.colorScheme.cgColor
         profilePicture.layer.cornerRadius = profilePicture.frame.height/2
@@ -71,7 +76,7 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
         checkDarkMode()
         updateColor()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         updateFontSize(resize:currentSettings.fontResize)
         checkDarkMode()
@@ -118,52 +123,48 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func editButtonPressed(_ sender: Any) {
-        enableUserEdits()
+        firstNameField.isUserInteractionEnabled = true
+        lastNameField.isUserInteractionEnabled = true
+        saveButton.isUserInteractionEnabled = true
+        discardButton.isUserInteractionEnabled = true
+        profilePicButton.isUserInteractionEnabled = true
+        saveButton.isHidden = false
+        discardButton.isHidden = false
+        profilePicButton.isHidden = false
+        editButton.isHidden = true
         updateFontSize(resize:currentSettings.fontResize)
     }
  
     @IBAction func saveButtonPressed(_ sender: Any) {
-        // check if first and last name are not blank
-        if firstNameField.text!.count > 0 && lastNameField.text!.count > 0 {
-            disableUserEdits()
-            // save new user data
-            currentUser.firstName = firstNameField.text!
-            currentUser.lastName = lastNameField.text!
-            updateFontSize(resize:currentSettings.fontResize)
-            // save profile picture
-            currentUser.profilePicture = self.chosenImage!
-            // update profile picture
-            DispatchQueue.main.async {
-                self.profilePicture.image = currentUser.profilePicture
-                self.profilePicture.setNeedsDisplay()
-            }
-            // Core Data
-        } else {
-            // alert
-            let alertVC = UIAlertController(
-                title: "Warning",
-                message: "Name fields cannot be blank",
-                preferredStyle: .alert)
-            let okAction = UIAlertAction(
-            title: "OK",
-            style: .default)
-            alertVC.addAction(okAction)
-            present(alertVC, animated:true)
-        }
+        // save new user data
+        currentUser.firstName = firstNameField.text!
+        currentUser.lastName = lastNameField.text!
+        updateFontSize(resize:currentSettings.fontResize)
+        
+        // Core Data
+    
+        firstNameField.isUserInteractionEnabled = false
+        lastNameField.isUserInteractionEnabled = false
+        saveButton.isUserInteractionEnabled = false
+        discardButton.isUserInteractionEnabled = false
+        profilePicButton.isUserInteractionEnabled = false
+        editButton.isHidden = false
+        saveButton.isHidden = true
+        discardButton.isHidden = true
+        profilePicButton.isHidden = true
     }
     
     @IBAction func discardButtonPressed(_ sender: Any) {
-        disableUserEdits()
+        firstNameField.isUserInteractionEnabled = false
+        lastNameField.isUserInteractionEnabled = false
+        saveButton.isUserInteractionEnabled = false
+        discardButton.isUserInteractionEnabled = false
+        profilePicButton.isUserInteractionEnabled = false
+        editButton.isHidden = false
+        saveButton.isHidden = true
+        discardButton.isHidden = true
+        profilePicButton.isHidden = true
         updateFontSize(resize:currentSettings.fontResize)
-        // reset text fields
-        firstNameField.text = currentUser.firstName
-        lastNameField.text = currentUser.lastName
-        
-        // update profile picture
-        DispatchQueue.main.async {
-            self.profilePicture.image = currentUser.profilePicture
-            self.profilePicture.setNeedsDisplay()
-        }
     }
     
     // brings up camera or image library
@@ -223,28 +224,18 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
                     alertVC.addAction(okAction)
                     self.present(alertVC, animated:true)
                     }
-            }))
-        controller.addAction(UIAlertAction(
-            title: "Delete Photo",
-            style: .destructive,
-            handler: {
-                (paramAction:UIAlertAction!) in
-                self.chosenImage = defaultProfilePic!
-                // update profile picture
-                DispatchQueue.main.async {
-                    self.profilePicture.image = self.chosenImage
-                    self.profilePicture.setNeedsDisplay()
-                }
+                // add to Core Data
             }))
         present(controller, animated: true)
     }
     
     // set selected image as profile picture
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        chosenImage = info[.originalImage] as? UIImage
+        let chosenImage = info[.originalImage] as! UIImage
+        currentUser.profilePicture = chosenImage
         // update profile picture
         DispatchQueue.main.async {
-            self.profilePicture.image = self.chosenImage
+            self.profilePicture.image = currentUser.profilePicture
             self.profilePicture.setNeedsDisplay()
         }
         
@@ -264,42 +255,8 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
         firstNameField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         lastNameField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         emailField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        allergiesButton.titleLabel?.font = UIFont.systemFont(ofSize: resize*17, weight: .bold)
-        dietButton.titleLabel?.font = UIFont.systemFont(ofSize: resize*17, weight: .bold)
-        profilePicButton.titleLabel?.font = UIFont.systemFont(ofSize: resize*15, weight: .bold)
-    }
-    
-    func updateNavBar() {
-        let attributes = [
-            NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: currentSettings.fontResize*17)
-        ]
-        self.navigationController?.navigationBar.titleTextAttributes = attributes
-        self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme
-    }
-    
-    func disableUserEdits() {
-        firstNameField.isUserInteractionEnabled = false
-        lastNameField.isUserInteractionEnabled = false
-        saveButton.isUserInteractionEnabled = false
-        discardButton.isUserInteractionEnabled = false
-        profilePicButton.isUserInteractionEnabled = false
-        editButton.isHidden = false
-        saveButton.isHidden = true
-        discardButton.isHidden = true
-        profilePicButton.isHidden = true
-    }
-    
-    func enableUserEdits() {
-        firstNameField.isUserInteractionEnabled = true
-        lastNameField.isUserInteractionEnabled = true
-        saveButton.isUserInteractionEnabled = true
-        discardButton.isUserInteractionEnabled = true
-        profilePicButton.isUserInteractionEnabled = true
-        editButton.isHidden = true
-        saveButton.isHidden = false
-        discardButton.isHidden = false
-        profilePicButton.isHidden = false
+        allergiesButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: resize*17)
+        dietButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: resize*17)
     }
     
     // dark mode settings

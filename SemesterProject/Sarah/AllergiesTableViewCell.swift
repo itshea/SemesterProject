@@ -14,6 +14,7 @@ class AllergiesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        updateFontSize(resize:currentSettings.fontResize)
         // Initialization code
     }
 
@@ -21,6 +22,13 @@ class AllergiesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateFontSize(resize: CGFloat) {
+        print("updating font")
+//        settingsLabel.font = UIFont.boldSystemFont(ofSize: resize*45)
+//        viewProfileButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+//        muteNotificationsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
     
     // dark mode settings
