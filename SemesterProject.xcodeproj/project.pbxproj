@@ -28,6 +28,8 @@
 		8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */; };
 		8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */; };
 		8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */; };
+		BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635A293527BF001F09F1 /* CalendarViewController.swift */; };
+		BCBD635D29352AE0001F09F1 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		8EC405DA291EA1AD00C54D37 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewListViewController.swift; sourceTree = "<group>"; };
+		BCBD635A293527BF001F09F1 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 		03417E2B28F07AB800C17101 /* SemesterProject */ = {
 			isa = PBXGroup;
 			children = (
+				BCBD635A293527BF001F09F1 /* CalendarViewController.swift */,
+				BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */,
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
 				03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */,
@@ -200,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */,
+				BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */,
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
@@ -216,6 +223,7 @@
 				8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */,
 				8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */,
 				8CCB9CED293366DA000511F9 /* ChangePasswordViewController.swift in Sources */,
+				BCBD635D29352AE0001F09F1 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
