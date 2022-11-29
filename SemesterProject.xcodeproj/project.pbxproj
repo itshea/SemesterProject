@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033D5E92293580D200993553 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033D5E91293580D200993553 /* MyTableViewCell.swift */; };
 		033FA1F5291EA4A4009B1B47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033FA1F4291EA4A4009B1B47 /* GoogleService-Info.plist */; };
 		033FA1F9291EA696009B1B47 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 033FA1F8291EA696009B1B47 /* FirebaseAuth */; };
 		03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E2C28F07AB800C17101 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		033D5E91293580D200993553 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		033FA1F4291EA4A4009B1B47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03417E2928F07AB800C17101 /* SemesterProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SemesterProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03417E2C28F07AB800C17101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,
+				033D5E91293580D200993553 /* MyTableViewCell.swift */,
 				8C695CBF28F9BEA90008652D /* Sarah */,
 				03417E3528F07ABB00C17101 /* Assets.xcassets */,
 				03417E3728F07ABB00C17101 /* LaunchScreen.storyboard */,
@@ -177,6 +180,7 @@
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
 				03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */,
 				03417E4328F07CB300C17101 /* NotificationsTableViewController.swift in Sources */,
+				033D5E92293580D200993553 /* MyTableViewCell.swift in Sources */,
 				03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */,
 				03417E2F28F07AB800C17101 /* SceneDelegate.swift in Sources */,
 				8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */,
