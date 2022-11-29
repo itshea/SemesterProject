@@ -19,6 +19,7 @@
 		03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4928F07DD900C17101 /* SignUpViewController.swift */; };
 		8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4277DA293482D800D8D057 /* UserProfileNavigationController.swift */; };
 		8C4277DD293484B300D8D057 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4277DC293484B300D8D057 /* SettingsNavigationController.swift */; };
+		8C619FB22936BFCA0057E367 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C619FB12936BFC80057E367 /* GoogleService-Info.plist */; };
 		8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBA28F9BC860008652D /* UserProfileViewController.swift */; };
 		8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBC28F9BC980008652D /* SettingsViewController.swift */; };
 		8CB1B8772931DFAD00BA1CF9 /* AddAllergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1B8762931DFAD00BA1CF9 /* AddAllergyViewController.swift */; };
@@ -29,8 +30,6 @@
 		8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */; };
 		8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */; };
 		BCBAD00329369C1C006F3C70 /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBAD00229369C1C006F3C70 /* MyDate.swift */; };
-		BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635A293527BF001F09F1 /* CalendarViewController.swift */; };
-		BCBD635D29352AE0001F09F1 /* AddMyItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635C29352AE0001F09F1 /* AddMyItemViewController.swift */; };
 		BCBD636029357D73001F09F1 /* Dates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635E29357D73001F09F1 /* Dates.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +47,7 @@
 		03417E4928F07DD900C17101 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C4277DA293482D800D8D057 /* UserProfileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNavigationController.swift; sourceTree = "<group>"; };
 		8C4277DC293484B300D8D057 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
+		8C619FB12936BFC80057E367 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8C695CBA28F9BC860008652D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		8C695CBC28F9BC980008652D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8CB1B8762931DFAD00BA1CF9 /* AddAllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAllergyViewController.swift; sourceTree = "<group>"; };
@@ -60,8 +60,6 @@
 		8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewListViewController.swift; sourceTree = "<group>"; };
 		BCBAD00229369C1C006F3C70 /* MyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
-		BCBD635A293527BF001F09F1 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		BCBD635C29352AE0001F09F1 /* AddMyItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMyItemViewController.swift; sourceTree = "<group>"; };
 		BCBD635F29357D73001F09F1 /* Dates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dates.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,9 +94,8 @@
 		03417E2B28F07AB800C17101 /* SemesterProject */ = {
 			isa = PBXGroup;
 			children = (
-				BCBD635A293527BF001F09F1 /* CalendarViewController.swift */,
+				8C619FB12936BFC80057E367 /* GoogleService-Info.plist */,
 				BCBAD00229369C1C006F3C70 /* MyDate.swift */,
-				BCBD635C29352AE0001F09F1 /* AddMyItemViewController.swift */,
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
 				03417E4228F07CB300C17101 /* NotificationsTableViewController.swift */,
@@ -106,7 +103,6 @@
 				8EC405DA291EA1AD00C54D37 /* ListViewController.swift */,
 				8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */,
 				8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */,
-				BCBD635C29352AE0001F09F1 /* AddItemViewController.swift */,
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,
@@ -200,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03417E3928F07ABB00C17101 /* LaunchScreen.storyboard in Resources */,
+				8C619FB22936BFCA0057E367 /* GoogleService-Info.plist in Resources */,
 				03417E3628F07ABB00C17101 /* Assets.xcassets in Resources */,
 				03417E3428F07AB800C17101 /* Main.storyboard in Resources */,
 			);
@@ -213,7 +210,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */,
-				BCBD635B293527BF001F09F1 /* CalendarViewController.swift in Sources */,
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
 				BCBD636029357D73001F09F1 /* Dates.xcdatamodeld in Sources */,
@@ -231,9 +227,7 @@
 				03417E2F28F07AB800C17101 /* SceneDelegate.swift in Sources */,
 				8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */,
 				8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */,
-				BCBD635D29352AE0001F09F1 /* AddMyItemViewController.swift in Sources */,
 				8CCB9CED293366DA000511F9 /* ChangePasswordViewController.swift in Sources */,
-				BCBD635D29352AE0001F09F1 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

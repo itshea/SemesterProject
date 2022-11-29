@@ -9,20 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="ot8-89-jCO">
-            <objects>
-                <navigationController id="mYk-aF-Buj" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="rtK-GP-FKB"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g5u-cr-mcm">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oG8-hZ-m0T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-632" y="78"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -195,7 +181,7 @@
                     <navigationItem key="navigationItem" id="6uF-qf-HS1"/>
                     <connections>
                         <outlet property="email" destination="wts-cO-OXg" id="DnZ-9H-FIm"/>
-                        <outlet property="error" destination="6mU-hd-cBo" id="s3d-5D-RN2"/>
+                        <outlet property="errorMessage" destination="6mU-hd-cBo" id="kpl-1t-oec"/>
                         <outlet property="firstName" destination="ZKx-8J-KM0" id="A3P-Iw-ffm"/>
                         <outlet property="lastName" destination="fgW-Mi-Uer" id="qSQ-3U-iuN"/>
                         <outlet property="pass" destination="AbO-Fr-UFZ" id="ZeN-9E-xj5"/>
@@ -275,9 +261,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieu-dJ-Eb5">
-                                <rect key="frame" x="30" y="814" width="173" height="35"/>
+                                <rect key="frame" x="20" y="814" width="184" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" red="0.79811984300000005" green="0.24716547129999999" blue="0.28625971080000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Discard Changes"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Discard Changes" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="discardButtonPressed:" destination="wA7-sv-lgR" eventType="touchUpInside" id="XeW-V5-Lb7"/>
                                 </connections>
@@ -309,9 +300,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVl-b0-aY9">
-                                <rect key="frame" x="211" y="814" width="173" height="35"/>
+                                <rect key="frame" x="212" y="814" width="184" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.12584301749999999" green="0.62242905140000004" blue="0.36463016850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save Changes" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="wA7-sv-lgR" eventType="touchUpInside" id="v3e-J9-MlG"/>
                                 </connections>
@@ -384,7 +379,7 @@
                             <outlet property="delegate" destination="iEE-T0-Lul" id="pov-TA-ub7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Allergies" id="w08-qV-tqI">
+                    <navigationItem key="navigationItem" title="Allergies" style="editor" id="w08-qV-tqI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tpY-fS-V6c">
                             <connections>
                                 <segue destination="akC-D8-gKQ" kind="show" identifier="AddAllergySegue" id="djd-yk-n5N"/>
@@ -435,14 +430,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-aU-Ufp">
-                                <rect key="frame" x="91" y="308" width="214" height="162"/>
+                                <rect key="frame" x="90" y="308" width="214" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enA-bi-37X">
-                                <rect key="frame" x="151" y="627" width="122" height="35"/>
+                                <rect key="frame" x="136" y="578" width="143" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" red="0.12584301749999999" green="0.62242905140000004" blue="0.36463016850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add Allergy"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Allergy" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="addAllergyButtonPressed:" destination="akC-D8-gKQ" eventType="touchUpInside" id="A0r-Nd-9oB"/>
                                 </connections>
@@ -496,7 +495,7 @@
                             <constraint firstItem="ngA-Hd-UXl" firstAttribute="leading" secondItem="WT4-cA-rIw" secondAttribute="leading" id="nLo-Sw-Fyj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Dietary Restrictions" id="JVI-Ut-ejl"/>
+                    <navigationItem key="navigationItem" title="Dietary Restrictions" style="editor" id="JVI-Ut-ejl"/>
                     <connections>
                         <outlet property="dietTableView" destination="ngA-Hd-UXl" id="bIC-2x-wOf"/>
                     </connections>
@@ -588,8 +587,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQA-KV-7zM">
                                 <rect key="frame" x="137" y="790" width="140" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="LOG OUT"/>
+                                <buttonConfiguration key="configuration" style="filled" title="LOG OUT" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="logOutPressed:" destination="Wjb-Fw-HtD" eventType="touchUpInside" id="AG2-qW-h1w"/>
                                 </connections>
@@ -693,12 +697,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hSe-PS-OeF">
-                                <rect key="frame" x="96" y="259" width="213" height="162"/>
+                                <rect key="frame" x="95" y="259" width="213" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                             </pickerView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xon-04-Qfq">
-                                <rect key="frame" x="234" y="100" width="142" height="81"/>
+                                <rect key="frame" x="233" y="100" width="142" height="81"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUR-co-QFd">
@@ -712,7 +716,7 @@
                         <viewLayoutGuide key="safeArea" id="5lf-wz-bxs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Notification Schedule" id="YQp-GV-4vC"/>
+                    <navigationItem key="navigationItem" title="Notification Schedule" style="editor" id="YQp-GV-4vC"/>
                     <connections>
                         <outlet property="notificationDelay" destination="hSe-PS-OeF" id="zbG-BB-fh2"/>
                         <outlet property="notificationTime" destination="Xon-04-Qfq" id="glL-CQ-Yj3"/>
@@ -828,7 +832,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="PbG-Zh-4SJ">
-                                <rect key="frame" x="-1" y="92" width="414" height="44"/>
+                                <rect key="frame" x="-2" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -996,9 +1000,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJW-cO-8Ui">
-                                <rect key="frame" x="121" y="551" width="172" height="35"/>
+                                <rect key="frame" x="112" y="551" width="191" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" red="0.12584301749999999" green="0.62242905140000004" blue="0.36463016850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Change Password" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="saveNewPassword:" destination="FhY-Ef-n8u" eventType="touchUpInside" id="fpS-ex-NsY"/>
                                 </connections>
@@ -1007,7 +1016,7 @@
                         <viewLayoutGuide key="safeArea" id="VbY-6R-2He"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Change Password" id="Dmb-T6-iDl"/>
+                    <navigationItem key="navigationItem" title="Change Password" style="editor" id="Dmb-T6-iDl"/>
                     <connections>
                         <outlet property="changePasswordPressed" destination="BJW-cO-8Ui" id="mDv-Go-eaJ"/>
                         <outlet property="enterPassLabel" destination="bcf-Ot-Aow" id="Rap-H1-7Dw"/>
@@ -1050,7 +1059,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="SEARCH" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-js-fLF">
-                                <rect key="frame" x="-1" y="92" width="414" height="44"/>
+                                <rect key="frame" x="-2" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1150,7 +1159,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Add"/>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="gn2-1R-JY9" userLabel="DatePicker">
-                                <rect key="frame" x="-1" y="370" width="414" height="162"/>
+                                <rect key="frame" x="-1" y="370" width="413" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5Z-5x-MyA" userLabel="itemName">
@@ -1160,7 +1169,6 @@
                                 <connections>
                                     <action selector="addListButtonPressed:" destination="abg-gz-6ki" eventType="touchUpInside" id="hp3-BS-yya"/>
                                 </connections>
-                            </textField>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sN3-Px-Ynl">
                                 <rect key="frame" x="64" y="384" width="286" height="34"/>

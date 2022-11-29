@@ -69,7 +69,7 @@ class SettingsViewController: UIViewController {
     
     func setUpColorMenu() {
         // create menu for color scheme button
-        colorSchemeButton.setTitle("Choose Color", for: .normal)
+        colorSchemeButton.setTitle(currentSettings.color, for: .normal)
         colorSchemeButton.showsMenuAsPrimaryAction = true
         var greenState:UIMenuElement.State = .off
         var blueState:UIMenuElement.State = .off

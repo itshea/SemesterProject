@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var passCon: UITextField!
     
+
     @IBOutlet weak var errorMessage: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()

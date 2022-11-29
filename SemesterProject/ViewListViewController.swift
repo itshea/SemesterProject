@@ -11,6 +11,7 @@ import UIKit
 protocol ItemAdder {
     func addItem()
 }
+public var itemsDict:[String: [String]] = [:]
 
 class ViewListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ItemAdder {
     // IB outlets
@@ -62,11 +63,11 @@ class ViewListViewController: UIViewController, UITableViewDataSource, UITableVi
     // add item segue
     @IBAction func addItemButtonPressed(_ sender: Any) {
         func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "AddItemSegue",
-               let nextVC = segue.destination as? AddItemViewController {
-                nextVC.delegate = self
-                nextVC.listKey = listName
-            }
+//            if segue.identifier == "AddItemSegue",
+//               let nextVC = segue.destination as? AddItemViewController {
+//                nextVC.delegate = self
+//                nextVC.listKey = listName
+//            }
         }
     }
     
