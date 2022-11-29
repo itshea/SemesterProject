@@ -14,7 +14,6 @@ protocol ListAdder {
 
 // list names
 var listNames:[String] = []
-var itemsDict:[String: [String]] = [:]
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListAdder {
     // IB Outlets

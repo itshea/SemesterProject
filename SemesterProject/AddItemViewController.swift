@@ -7,6 +7,8 @@
 
 import UIKit
 
+var itemsDict:[String: [String]] = [:]
+
 class AddItemViewController: UIViewController {
     // IB outlets
     @IBOutlet weak var textField: UITextField!
