@@ -10,8 +10,9 @@ import UIKit
 class MyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var readButton: UIButton!
     @IBOutlet weak var foodLabel: UILabel!
+    
+    var delegate: UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +23,5 @@ class MyTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-
-    // removes item from notification list
-    @IBAction func readButtonTouch(_ sender: Any) {
     }
 }

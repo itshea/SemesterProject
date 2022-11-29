@@ -40,8 +40,18 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MyTableViewCell
         
         // changes the text based on food item
-        cell.foodLabel.text = "\(self.foodItems[indexPath.row]) is about to expire"
+        cell.foodLabel.text = "Your \(self.foodItems[indexPath.row]) are about to expire."
         return cell
     }
     
+    // set height of table cell to 90
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
