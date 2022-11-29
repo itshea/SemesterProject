@@ -33,6 +33,7 @@ class NotificationSchedulerViewController: UIViewController, UIPickerViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFontSize(resize:currentSettings.fontResize)
+        scheduleInfo.textColor = currentSettings.colorScheme
         checkDarkMode()
         notificationDelay.delegate = self
         notificationDelay.dataSource = self
