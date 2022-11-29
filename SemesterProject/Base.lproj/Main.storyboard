@@ -1160,6 +1160,7 @@
                                 <connections>
                                     <action selector="addListButtonPressed:" destination="abg-gz-6ki" eventType="touchUpInside" id="hp3-BS-yya"/>
                                 </connections>
+                            </textField>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sN3-Px-Ynl">
                                 <rect key="frame" x="64" y="384" width="286" height="34"/>
