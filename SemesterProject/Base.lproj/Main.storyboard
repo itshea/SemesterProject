@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7hz-FT-bHj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7hz-FT-bHj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -71,9 +70,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CREATE ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oo-Di-clQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oo-Di-clQ">
                                 <rect key="frame" x="28" y="127" width="359" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -173,8 +171,11 @@
                                     <segue destination="7N4-Yw-VT9" kind="show" identifier="LoginSegue" id="QfV-RL-cww"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mU-hd-cBo">
-                                <rect key="frame" x="0.0" y="186" width="414" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mU-hd-cBo">
+                                <rect key="frame" x="0.0" y="179" width="414" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="23z-zj-d0s"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -183,6 +184,9 @@
                         <viewLayoutGuide key="safeArea" id="npq-WJ-aJr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6mU-hd-cBo" firstAttribute="firstBaseline" secondItem="3Oo-Di-clQ" secondAttribute="baseline" constant="28" symbolType="layoutAnchor" id="DNv-UA-OKd"/>
+                            <constraint firstItem="3Oo-Di-clQ" firstAttribute="leading" secondItem="npq-WJ-aJr" secondAttribute="leading" constant="28" id="LKy-Y7-dqy"/>
+                            <constraint firstItem="3Oo-Di-clQ" firstAttribute="top" secondItem="npq-WJ-aJr" secondAttribute="top" constant="83" id="PNc-Pn-63Z"/>
                             <constraint firstItem="6mU-hd-cBo" firstAttribute="leading" secondItem="npq-WJ-aJr" secondAttribute="leading" id="wjy-hV-tbt"/>
                             <constraint firstItem="npq-WJ-aJr" firstAttribute="trailing" secondItem="6mU-hd-cBo" secondAttribute="trailing" id="yy3-lQ-UTU"/>
                         </constraints>
@@ -247,9 +251,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.36907589439999999" green="0.57815182210000005" blue="0.43527477980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Edit Profile"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Edit Profile" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="editButtonPressed:" destination="wA7-sv-lgR" eventType="touchUpInside" id="qhZ-pL-b63"/>
                                 </connections>
@@ -276,10 +277,6 @@
                                 <rect key="frame" x="30" y="814" width="173" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Discard Changes" cornerStyle="capsule">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="discardButtonPressed:" destination="wA7-sv-lgR" eventType="touchUpInside" id="XeW-V5-Lb7"/>
                                 </connections>
@@ -314,10 +311,6 @@
                                 <rect key="frame" x="211" y="814" width="173" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Save Changes" cornerStyle="capsule">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                    <color key="baseBackgroundColor" red="0.094686273799999998" green="0.60107846600000003" blue="0.29006176290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="wA7-sv-lgR" eventType="touchUpInside" id="v3e-J9-MlG"/>
                                 </connections>
@@ -357,7 +350,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllergyCell" id="fmp-dS-mng" customClass="AllergiesTableViewCell" customModule="SemesterProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fmp-dS-mng" id="RBc-2Y-RQb" customClass="AllergiesTableViewCell" customModule="SemesterProject" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -390,7 +383,7 @@
                             <outlet property="delegate" destination="iEE-T0-Lul" id="pov-TA-ub7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Allergies" style="editor" id="w08-qV-tqI">
+                    <navigationItem key="navigationItem" title="Allergies" id="w08-qV-tqI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tpY-fS-V6c">
                             <connections>
                                 <segue destination="akC-D8-gKQ" kind="show" identifier="AddAllergySegue" id="djd-yk-n5N"/>
@@ -449,9 +442,6 @@
                                 <rect key="frame" x="151" y="627" width="122" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add Allergy" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" red="0.12584301749999999" green="0.62242905140000004" blue="0.36463016850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="addAllergyButtonPressed:" destination="akC-D8-gKQ" eventType="touchUpInside" id="A0r-Nd-9oB"/>
                                 </connections>
@@ -482,11 +472,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ngA-Hd-UXl">
-                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DietCell" id="YNW-Th-Juh">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YNW-Th-Juh" id="e3O-I2-c2b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -505,7 +495,7 @@
                             <constraint firstItem="ngA-Hd-UXl" firstAttribute="leading" secondItem="WT4-cA-rIw" secondAttribute="leading" id="nLo-Sw-Fyj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Dietary Restrictions" style="editor" id="JVI-Ut-ejl"/>
+                    <navigationItem key="navigationItem" title="Dietary Restrictions" id="JVI-Ut-ejl"/>
                     <connections>
                         <outlet property="dietTableView" destination="ngA-Hd-UXl" id="bIC-2x-wOf"/>
                     </connections>
@@ -599,9 +589,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="LOG OUT" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="logOutPressed:" destination="Wjb-Fw-HtD" eventType="touchUpInside" id="AG2-qW-h1w"/>
                                 </connections>
@@ -645,7 +632,7 @@
                                 <color key="textColor" red="0.36907589439999999" green="0.57815182210000005" blue="0.43527477980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-Ef-I4M">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-Ef-I4M">
                                 <rect key="frame" x="247" y="691" width="121" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -724,7 +711,7 @@
                         <viewLayoutGuide key="safeArea" id="5lf-wz-bxs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Notification Schedule" style="editor" id="YQp-GV-4vC"/>
+                    <navigationItem key="navigationItem" title="Notification Schedule" id="YQp-GV-4vC"/>
                     <connections>
                         <outlet property="notificationDelay" destination="hSe-PS-OeF" id="zbG-BB-fh2"/>
                         <outlet property="notificationTime" destination="Xon-04-Qfq" id="glL-CQ-Yj3"/>
@@ -885,14 +872,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="8AS-m6-kfE" style="IBUITableViewCellStyleDefault" id="dyZ-Rh-4xz">
-                                        <rect key="frame" x="0.0" y="50" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dyZ-Rh-4xz" id="jrs-Cz-dOU">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8AS-m6-kfE">
-                                                    <rect key="frame" x="20" y="0.0" width="315.5" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="315" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -997,7 +984,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="j78-YM-cDm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hWB-Ci-sYf">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1067,9 +1054,6 @@
                                 <rect key="frame" x="121" y="551" width="172" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Change Password" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" red="0.12584301749999999" green="0.62242905140000004" blue="0.36463016850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="saveNewPassword:" destination="FhY-Ef-n8u" eventType="touchUpInside" id="fpS-ex-NsY"/>
                                 </connections>
@@ -1078,7 +1062,7 @@
                         <viewLayoutGuide key="safeArea" id="VbY-6R-2He"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Change Password" style="editor" id="Dmb-T6-iDl"/>
+                    <navigationItem key="navigationItem" title="Change Password" id="Dmb-T6-iDl"/>
                     <connections>
                         <outlet property="changePasswordPressed" destination="BJW-cO-8Ui" id="mDv-Go-eaJ"/>
                         <outlet property="enterPassLabel" destination="bcf-Ot-Aow" id="Rap-H1-7Dw"/>
@@ -1100,7 +1084,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7hz-FT-bHj" customClass="SettingsNavigationController" customModule="SemesterProject" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hbl-7w-XdL">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1119,16 +1103,10 @@
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
