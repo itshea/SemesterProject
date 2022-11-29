@@ -5,6 +5,7 @@
 //  Created by Iris Shea on 10/7/22.
 //
 
+// The Welcome screen with two segues
 import UIKit
 
 class ViewController: UIViewController {

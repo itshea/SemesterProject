@@ -24,7 +24,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     let reuseIdentifier = "MyCell"
     
     // create an array of names of food items
-    public var foodItems = ["apples", "oranges"]// [String]()
+    public var foodItems = ["apples", "oranges", "pork", "broccoli", "mozzarella cheese", "wheat bread", "milk", "potatos", "creamer", "orange juice", "cheerios"]// [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MyTableViewCell
         
         // changes the text based on food item
-        cell.foodLabel.text = "Your \(self.foodItems[indexPath.row]) are about to expire."
+        cell.foodLabel.text = "Your \(self.foodItems[indexPath.row]) is/are about to expire."
         return cell
     }
     
@@ -49,9 +49,16 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         return 90
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            tableView.beginUpdates()
+            foodItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
         }
     }
 }
