@@ -29,6 +29,7 @@
 		8CCB9CEF29336715000511F9 /* NotificationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB9CEE29336715000511F9 /* NotificationSchedulerViewController.swift */; };
 		8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */; };
 		8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */; };
+		8EB0BF852937841D00614CED /* AddListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0BF842937841D00614CED /* AddListItemViewController.swift */; };
 		8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */; };
 		BCAA5E852936C66600A6EB2D /* AddMyItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA5E842936C66600A6EB2D /* AddMyItemViewController.swift */; };
 		BCAA5E872936C67900A6EB2D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA5E862936C67900A6EB2D /* CalendarViewController.swift */; };
@@ -60,6 +61,7 @@
 		8CCB9CEE29336715000511F9 /* NotificationSchedulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedulerViewController.swift; sourceTree = "<group>"; };
 		8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesTableViewController.swift; sourceTree = "<group>"; };
 		8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesTableViewCell.swift; sourceTree = "<group>"; };
+		8EB0BF842937841D00614CED /* AddListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListItemViewController.swift; sourceTree = "<group>"; };
 		8EC405DA291EA1AD00C54D37 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewListViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				8EC405DA291EA1AD00C54D37 /* ListViewController.swift */,
 				8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */,
 				8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */,
+				8EB0BF842937841D00614CED /* AddListItemViewController.swift */,
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,
@@ -239,6 +242,7 @@
 				8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */,
 				033D5EC32936D0D600993553 /* NotificationsViewController.swift in Sources */,
 				8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */,
+				8EB0BF852937841D00614CED /* AddListItemViewController.swift in Sources */,
 				8CCB9CED293366DA000511F9 /* ChangePasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

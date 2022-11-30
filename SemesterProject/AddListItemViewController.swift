@@ -1,54 +1,54 @@
 //
-//  AddListViewController.swift
+//  AddListItemViewController.swift
 //  SemesterProject
 //
-//  Created by Jennifer Wei on 11/11/22.
+//  Created by Jennifer Wei on 11/30/22.
 //
 
 import UIKit
 
-class AddListViewController: UIViewController {
+class AddListItemViewController: UIViewController {
     // IB outlets
     @IBOutlet weak var textField: UITextField!
     
-    // delegate variable
+    // variables
     var delegate: UIViewController!
+    var listKey:String = ""
+    var itemIndex:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func addListButtonPressed(_ sender: Any) {
+    @IBAction func addButtonPressed(_ sender: Any) {
         // blank
         if (textField.text!.replacingOccurrences(of: " ", with: "") == "") {
-            // alert
             let controller = UIAlertController(
-                title: "Missing list name",
-                message: "Please enter a name",
+                title: "Missing item name",
+                message: "Please enter an item",
                 preferredStyle: .alert)
             controller.addAction(UIAlertAction(
                 title: "OK",
                 style: .default))
             present(controller, animated: true)
         }
-        // list already exists
-        else if listNames.firstIndex(of: textField.text!) != nil {
+        // item already exists
+        else if items[itemIndex].firstIndex(of: textField.text!) != nil {
             // alert
             let controller = UIAlertController(
-                title: "List already exists",
-                message: "Please enter a new list name",
+                title: "Item already exists",
+                message: "Please enter a new item",
                 preferredStyle: .alert)
             controller.addAction(UIAlertAction(
                 title: "OK",
                 style: .default))
             present(controller, animated: true)
         } else {
-            listNames.append(textField.text!)
-            items.append([])
+            items[itemIndex].append(textField.text!)
             
             // reload table via delegate/protocol
-            let otherVC = delegate as! ListAdder
-            otherVC.addList()
+            let otherVC = delegate as! ItemAdder
+            otherVC.addItem(name: listKey, index: itemIndex)
             
             // automatically go back
             if let nav = self.navigationController {
