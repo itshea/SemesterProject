@@ -9,9 +9,10 @@ import UIKit
 
 // protocol for adding list
 protocol ItemAdder {
-    func addItem()
+    func addItem(name: String, index: Int)
 }
-public var itemsDict:[String: [String]] = [:]
+
+var items:[[String]] = [[]]
 
 class ViewListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ItemAdder {
     // IB outlets
@@ -21,6 +22,7 @@ class ViewListViewController: UIViewController, UITableViewDataSource, UITableVi
     // variables
     var delegate:UIViewController!
     var listName:String = ""
+    var listIndex:Int = 0
     let textCellID = "TextCell"
     
     override func viewDidLoad() {
@@ -32,21 +34,21 @@ class ViewListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsDict[listName]!.count
+        return items[listIndex].count
     }
     
     // cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let cell = aListTableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
-        cell.textLabel?.text = itemsDict[listName]![row]
+        cell.textLabel?.text = items[listIndex][row]
         return cell
     }
     
     // delete rows
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            itemsDict[listName]!.remove(at: indexPath.row)
+            items[listIndex].remove(at: indexPath.row)
             aListTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
         }
     }
@@ -63,16 +65,19 @@ class ViewListViewController: UIViewController, UITableViewDataSource, UITableVi
     // add item segue
     @IBAction func addItemButtonPressed(_ sender: Any) {
         func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if segue.identifier == "AddItemSegue",
-//               let nextVC = segue.destination as? AddItemViewController {
-//                nextVC.delegate = self
-//                nextVC.listKey = listName
-//            }
+            if segue.identifier == "AddListItemSegue",
+               let nextVC = segue.destination as? AddListItemViewController {
+                nextVC.delegate = self
+                nextVC.listKey = listName
+                nextVC.itemIndex = listIndex
+            }
         }
     }
     
     // reload table via delegate/protocol
-    func addItem() {
+    func addItem(name: String, index: Int) {
+        listNameLabel.text = name
+        listIndex = index
         aListTableView.reloadData()
     }
 

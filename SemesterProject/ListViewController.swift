@@ -18,7 +18,7 @@ var listNames:[String] = []
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListAdder {
     // IB Outlets
     @IBOutlet weak var listsTableView: UITableView!
-    
+
     // cell
     let textCellID = "TextCell"
     
@@ -63,6 +63,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
            let listIndex = listsTableView.indexPathForSelectedRow?.row {
             nextVC.delegate = self
             nextVC.listName = listNames[listIndex]
+            nextVC.listIndex = listIndex
         }
     }
     
