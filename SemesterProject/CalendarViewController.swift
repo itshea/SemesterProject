@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SwiftUI
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context = appDelegate.persistentContainer.viewContext
@@ -34,7 +35,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         let day = Calendar.current.component(.day, from: today)
         dateLabel.text = "\(day) \(month)"
         checkDarkMode()
-        updateColor()
         updateFontSize(resize:currentSettings.fontResize)
         updateNavBar()
         pastOrderTable.delegate = self
@@ -54,9 +54,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         let row = indexPath.row
         let newDate = dateList[row]
-        cell.textLabel?.lineBreakMode = .byWordWrapping
-        cell.textLabel?.numberOfLines = 5
-        cell.textLabel?.text = "\(newDate.name!)"
+        if newDate.date == self.selectDate.date{
+            cell.textLabel?.lineBreakMode = .byWordWrapping
+            cell.textLabel?.numberOfLines = 5
+            cell.textLabel?.text = "\(newDate.name!)"
+        }
         return cell
     }
     
@@ -113,10 +115,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func updateColor() {
-            //dateLabel.setTitleColor(currentSettings.colorScheme, for: .normal)
-            //addItem.textColor = currentSettings.colorScheme
-        }
 
     
     func updateFontSize(resize: CGFloat) {
