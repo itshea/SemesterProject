@@ -36,7 +36,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let cell = tableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
+        let cell = listsTableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
         cell.textLabel?.text = listNames[row]
         return cell
     }
