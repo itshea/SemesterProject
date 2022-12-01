@@ -4,8 +4,8 @@
 //
 //  Created by Sarah Tsai on 11/27/22.
 //
-
 import UIKit
+import FirebaseAuth
 
 class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
 
@@ -23,6 +23,7 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         updateFontSize(resize:currentSettings.fontResize)
         warningLabel.textColor = currentSettings.colorScheme
         checkDarkMode()
+        updateColor()
         oldPassword.isSecureTextEntry = true
         newPassword1.isSecureTextEntry = true
         newPassword2.isSecureTextEntry = true
@@ -44,12 +45,8 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveNewPassword(_ sender: Any) {
-        if checkOldPassword() && checkNewPassword() && verifyPassword() {
-            warningLabel.text = "Password changed successfully"
-            currentUser.password = newPassword1.text!
-            oldPassword.text = ""
-            newPassword1.text = ""
-            newPassword2.text = ""
+        if checkOldPassword() && checkNewPassword() {
+            updatePassword()
         }
     }
     
@@ -62,27 +59,30 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // check if new password and re-entered password match
     func checkNewPassword() -> Bool {
-        if verifyPassword() {
-            if newPassword1.text == newPassword2.text {
-                return true
-            } else {
-                warningLabel.text = "Passwords do not match"
-                return false
-            }
+        if newPassword1.text == newPassword2.text {
+            return true
         } else {
-            warningLabel.text = "New password must be at least 6 characters"
+            warningLabel.text = "Passwords do not match"
             return false
         }
     }
     
-    // password must be at least 6 characters long
-    func verifyPassword() -> Bool {
-        if newPassword1.text!.count >= 6 {
-            return true
-        } else {
-            return false
-        }
+    // set new password in Firebase
+    func updatePassword() -> Bool {
+        ((Auth.auth().currentUser?.updatePassword(to: newPassword1.text!) {
+            error in
+            if let error = error as NSError? {
+                self.warningLabel.text = "\(error.localizedDescription)"
+            } else {
+                self.warningLabel.text = "Password changed successfully"
+                currentUser.password = self.newPassword1.text!
+                self.oldPassword.text = ""
+                self.newPassword1.text = ""
+                self.newPassword2.text = ""
+            }
+        }) != nil)
     }
     
     func updateFontSize(resize: CGFloat) {
@@ -92,12 +92,12 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         oldPassword.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         newPassword1.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         newPassword2.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        // change button size
-//        changePasswordPressed.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-//        changePasswordPressed.titleLabel?.numberOfLines = 1
-//        changePasswordPressed.titleLabel?.adjustsFontSizeToFitWidth = true
-//        changePasswordPressed.titleLabel?.lineBreakMode = .byClipping
+        changePasswordPressed.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         warningLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+    }
+    
+    func updateColor() {
+        changePasswordPressed.setTitleColor(currentSettings.colorScheme, for: .normal)
     }
     
     // dark mode settings

@@ -9,6 +9,7 @@ import UIKit
 
 class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var addAllergyButton: UIButton!
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var severityLabel: UILabel!
     @IBOutlet weak var severityPicker: UIPickerView!
@@ -21,6 +22,7 @@ class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
         warningLabel.textColor = currentSettings.colorScheme
         updateFontSize(resize:currentSettings.fontResize)
+        updateColor()
         checkDarkMode()
         severityPicker.delegate = self
         severityPicker.dataSource = self
@@ -75,6 +77,11 @@ class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPicker
         severityLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         foodTextField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         warningLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        addAllergyButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+    }
+    
+    func updateColor() {
+        addAllergyButton.setTitleColor(currentSettings.colorScheme, for: .normal)
     }
     
     // dark mode settings

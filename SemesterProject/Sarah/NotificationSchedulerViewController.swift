@@ -22,41 +22,20 @@ extension UIDatePicker {
 class NotificationSchedulerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var notifyMeLabel: UILabel!
-    @IBOutlet weak var notificationTimeLabel: UILabel!
-    @IBOutlet weak var notificationTime: UIDatePicker!
     @IBOutlet weak var notificationDelay: UIPickerView!
     @IBOutlet weak var scheduleInfo: UILabel!
     var days:Int = currentSettings.daysBeforeNotification
-    var time:String = currentSettings.notificationTime
-    var schedule:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFontSize(resize:currentSettings.fontResize)
         scheduleInfo.textColor = currentSettings.colorScheme
         checkDarkMode()
+        updateColor()
         notificationDelay.delegate = self
         notificationDelay.dataSource = self
-        // add event to date picker to update scheduling info when value is changed
-        notificationTime.addTarget(self, action: #selector(NotificationSchedulerViewController.datePickerValueChanged(_:)), for: .valueChanged)
-        updateScheduleInfo()
-        // set both pickers to original user settings
-        notificationTime.setDate(from: currentSettings.notificationTime, format: "h:mm a")
         notificationDelay.selectRow(currentSettings.daysBeforeNotification-1, inComponent: 0, animated: true)
         // display scheduling info
-        schedule = "Notifications will be sent \(days) days(s) before an item expires at \(time)"
-        updateScheduleInfo()
-    }
-    
-    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
-        // Create date formatter
-        let dateFormatter: DateFormatter = DateFormatter()
-        // Set date format
-        dateFormatter.dateFormat = "h:mm a"
-        // Apply date format
-        let selectedDate: String = dateFormatter.string(from: sender.date)
-        time = "\(selectedDate)"
-        currentSettings.notificationTime = time
         updateScheduleInfo()
     }
 
@@ -89,8 +68,11 @@ class NotificationSchedulerViewController: UIViewController, UIPickerViewDelegat
     }
     
     func updateScheduleInfo() {
-        schedule = "Notifications will be sent \(currentSettings.daysBeforeNotification) days(s) before an item expires at \(currentSettings.notificationTime)"
-        scheduleInfo.text = schedule
+        scheduleInfo.text = "Notifications will be sent \(currentSettings.daysBeforeNotification) day(s) before an item expires"
+    }
+    
+    func updateColor() {
+        scheduleInfo.textColor = currentSettings.colorScheme
     }
     
     func updateFontSize(resize: CGFloat) {
@@ -102,8 +84,6 @@ class NotificationSchedulerViewController: UIViewController, UIPickerViewDelegat
             newSize = Float(resize*17)
         }
         notifyMeLabel.font = UIFont.systemFont(ofSize: CGFloat(newSize))
-        notificationTimeLabel.font = UIFont.systemFont(ofSize: CGFloat(newSize))
-
     }
     
     // dark mode settings

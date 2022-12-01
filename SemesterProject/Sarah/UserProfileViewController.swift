@@ -25,6 +25,8 @@ public let defaultProfilePic = UIImage(named: "defaultProfilePic.png")
 
 class UserProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var discardButton: UIButton!
     @IBOutlet weak var dietButton: UIButton!
     @IBOutlet weak var allergiesButton: UIButton!
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -33,9 +35,7 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var discardButton: UIButton!
     @IBOutlet weak var profilePicButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     let picker = UIImagePickerController()
@@ -85,6 +85,8 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
         firstNameLabel.textColor = currentSettings.colorScheme
         lastNameLabel.textColor = currentSettings.colorScheme
         emailLabel.textColor = currentSettings.colorScheme
+        editButton.setTitleColor(currentSettings.colorScheme, for: .normal)
+        profilePicButton.setTitleColor(currentSettings.colorScheme, for: .normal)
     }
     
     // Called when 'return' key pressed
@@ -267,6 +269,10 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
         allergiesButton.titleLabel?.font = UIFont.systemFont(ofSize: resize*17, weight: .bold)
         dietButton.titleLabel?.font = UIFont.systemFont(ofSize: resize*17, weight: .bold)
         profilePicButton.titleLabel?.font = UIFont.systemFont(ofSize: resize*15, weight: .bold)
+//        discardButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+//        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        profilePicButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        editButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
     
     func updateNavBar() {
