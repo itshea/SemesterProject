@@ -44,12 +44,8 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveNewPassword(_ sender: Any) {
-        if checkOldPassword() && checkNewPassword() && verifyPassword() {
-            warningLabel.text = "Password changed successfully"
-            currentUser.password = newPassword1.text!
-            oldPassword.text = ""
-            newPassword1.text = ""
-            newPassword2.text = ""
+        if checkOldPassword() && checkNewPassword() {
+            updatePassword()
         }
     }
     
@@ -62,26 +58,29 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // check if new password and re-entered password match
     func checkNewPassword() -> Bool {
-        if verifyPassword() {
-            if newPassword1.text == newPassword2.text {
-                return true
-            } else {
-                warningLabel.text = "Passwords do not match"
-                return false
-            }
+        if newPassword1.text == newPassword2.text {
+            return true
         } else {
-            warningLabel.text = "New password must be at least 6 characters"
+            warningLabel.text = "Passwords do not match"
             return false
         }
     }
     
-    // password must be at least 6 characters long
-    func verifyPassword() -> Bool {
-        if newPassword1.text!.count >= 6 {
-            return true
-        } else {
-            return false
+    // set new password in Firebase
+    func updatePassword() -> Bool {
+        Auth.auth().currentUser?.updatePassword(to: newPassword1.text!) {
+            authResult, error in
+            if let error = error as NSError? {
+                self.warningLabel.text = "\(error.localizedDescription)"
+            } else {
+                self.errorMessage.text = "Password changed successfully"
+                currentUser.password = newPassword1.text!
+                oldPassword.text = ""
+                newPassword1.text = ""
+                newPassword2.text = ""
+            }
         }
     }
     

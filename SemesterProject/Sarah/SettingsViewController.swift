@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 public struct Settings {
     var daysBeforeNotification = 3
@@ -17,7 +18,7 @@ public struct Settings {
     var fontResize: CGFloat = 1.25
 }
 
-public let defaults = UserDefaults.standard
+public let userDefaults = UserDefaults.standard
 public var currentSettings = Settings()
 public var greenColor = UIColor(red: 32/255, green: 159/255, blue: 93/255, alpha: 1.0)
 public var blueColor = UIColor(red: 72/255, green: 162/255, blue: 226/255, alpha: 1.0)
@@ -47,7 +48,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUserDefaults() // this shouldn't be here, it's for the sign up page ONLY where no defaults have been set yet
+//        updateUserDefaults() // this shouldn't be here, it's for the sign up page ONLY where no defaults have been set yet
         loadUserDefaults()  // this should be placed in the home page
         checkDarkMode()
         updateColor()
@@ -131,12 +132,13 @@ class SettingsViewController: UIViewController {
     }
     
     func loadUserDefaults() {
-        currentSettings.daysBeforeNotification = defaults.integer(forKey: "daysBeforeNotification")
-        currentSettings.notificationTime = defaults.string(forKey: "notificationTime")!
-        currentSettings.muteNotifications = defaults.bool(forKey: "muteNotifications")
-        currentSettings.darkMode = defaults.bool(forKey: "darkMode")
-        currentSettings.color = defaults.string(forKey: "color")!
-        currentSettings.fontResize = CGFloat(defaults.float(forKey: "fontResize"))
+        print("loading user defaults")
+        currentSettings.daysBeforeNotification = userDefaults.integer(forKey: "daysBeforeNotification")
+        currentSettings.notificationTime = userDefaults.string(forKey: "notificationTime")!
+        currentSettings.muteNotifications = userDefaults.bool(forKey: "muteNotifications")
+        currentSettings.darkMode = userDefaults.bool(forKey: "darkMode")
+        currentSettings.color = userDefaults.string(forKey: "color")!
+        currentSettings.fontResize = CGFloat(userDefaults.float(forKey: "fontResize"))
         
         // determine color scheme
         if currentSettings.color == "Red" {
@@ -155,12 +157,13 @@ class SettingsViewController: UIViewController {
     }
     
     func updateUserDefaults() {
-        defaults.set(currentSettings.daysBeforeNotification, forKey: "daysBeforeNotification")
-        defaults.set(currentSettings.notificationTime, forKey: "notificationTime")
-        defaults.set(currentSettings.muteNotifications, forKey: "muteNotifications")
-        defaults.set(currentSettings.darkMode, forKey: "darkMode")
-        defaults.set(currentSettings.color, forKey: "color")
-        defaults.set(currentSettings.fontResize, forKey: "fontResize")
+        print("updating user defaults")
+        userDefaults.set(currentSettings.daysBeforeNotification, forKey: "daysBeforeNotification")
+        userDefaults.set(currentSettings.notificationTime, forKey: "notificationTime")
+        userDefaults.set(currentSettings.muteNotifications, forKey: "muteNotifications")
+        userDefaults.set(currentSettings.darkMode, forKey: "darkMode")
+        userDefaults.set(currentSettings.color, forKey: "color")
+        userDefaults.set(currentSettings.fontResize, forKey: "fontResize")
     }
     
     func updateColor() {
@@ -182,6 +185,7 @@ class SettingsViewController: UIViewController {
             currentSettings.darkMode = false
             overrideUserInterfaceStyle = .light
         }
+        updateUserDefaults()
     }
     
     @objc func muteSwitchIsChanged(mySwitch: UISwitch) {
@@ -190,6 +194,7 @@ class SettingsViewController: UIViewController {
         } else {
             currentSettings.muteNotifications = false
         }
+        updateUserDefaults()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -209,6 +214,7 @@ class SettingsViewController: UIViewController {
         currentSettings.fontResize = resizeValue
         updateFontSize(resize: resizeValue)
         self.updateNavBar()
+        self.updateUserDefaults()
     }
     
     func updateFontSize(resize: CGFloat) {
@@ -230,6 +236,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logOutPressed(_ sender: Any) {
         currentUser.loggedIn = false
+        updateUserDefaults()
     }
     
     func updateNavBar() {

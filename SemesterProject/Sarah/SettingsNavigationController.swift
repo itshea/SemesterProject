@@ -11,7 +11,5 @@ class SettingsNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
 }
