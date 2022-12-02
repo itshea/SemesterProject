@@ -1,8 +1,8 @@
 //
-//  ListViewController.swift
+//  ListsViewController.swift
 //  SemesterProject
 //
-//  Created by Jennifer Wei on 11/11/22.
+//  Created by Jennifer Wei on 12/2/22.
 //
 
 import UIKit
@@ -12,13 +12,14 @@ protocol ListAdder {
     func addList()
 }
 
-// list names
+// lists
 var listNames:[String] = []
+var items:[[String]] = [["ham", "cheese"]]
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListAdder {
-    // IB Outlets
+class ListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListAdder {
+    // IB outlets
     @IBOutlet weak var listsTableView: UITableView!
-
+    
     // cell
     let textCellID = "TextCell"
     
@@ -36,7 +37,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let cell = listsTableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
         cell.textLabel?.text = listNames[row]
         return cell
     }
@@ -53,13 +54,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // segue to add new list
         if segue.identifier == "AddListSegue",
-           let nextVC = segue.destination as? AddListViewController {
+           let nextVC = segue.destination as? NewListViewController {
             nextVC.delegate = self
         }
         
-        // segue to view list
+        // segue to show list
         if segue.identifier == "ViewListSegue",
-           let nextVC = segue.destination as? ViewListViewController,
+           let nextVC = segue.destination as? ShowListViewController,
            let listIndex = listsTableView.indexPathForSelectedRow?.row {
             nextVC.delegate = self
             nextVC.listName = listNames[listIndex]
