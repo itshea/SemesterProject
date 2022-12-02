@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Bobby Rough Soft Outline.ttf</string>
+		<string>Bobby Jones Soft.otf</string>
+		<string>Bobby Rough Soft.ttf</string>
+		<string>Bobby Jones Soft Outline.otf</string>
+		<string>Quicksand_Bold.otf</string>
+		<string>Quicksand_Book.otf</string>
+		<string>Quicksand_Light.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
