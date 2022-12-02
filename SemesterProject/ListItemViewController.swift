@@ -1,13 +1,13 @@
 //
-//  AddListItemViewController.swift
+//  ListItemViewController.swift
 //  SemesterProject
 //
-//  Created by Jennifer Wei on 11/30/22.
+//  Created by Jennifer Wei on 12/2/22.
 //
 
 import UIKit
 
-class AddListItemViewController: UIViewController {
+class ListItemViewController: UIViewController {
     // IB outlets
     @IBOutlet weak var textField: UITextField!
     
@@ -20,6 +20,7 @@ class AddListItemViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // add item
     @IBAction func addButtonPressed(_ sender: Any) {
         // blank
         if (textField.text!.replacingOccurrences(of: " ", with: "") == "") {
@@ -57,6 +58,7 @@ class AddListItemViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+        
     }
-
+    
 }

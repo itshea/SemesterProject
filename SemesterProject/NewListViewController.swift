@@ -1,13 +1,13 @@
 //
-//  AddListViewController.swift
+//  NewListViewController.swift
 //  SemesterProject
 //
-//  Created by Jennifer Wei on 11/11/22.
+//  Created by Jennifer Wei on 12/2/22.
 //
 
 import UIKit
 
-class AddListViewController: UIViewController {
+class NewListViewController: UIViewController {
     // IB outlets
     @IBOutlet weak var textField: UITextField!
     
@@ -18,6 +18,7 @@ class AddListViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // add list
     @IBAction func addListButtonPressed(_ sender: Any) {
         // blank
         if (textField.text!.replacingOccurrences(of: " ", with: "") == "") {
@@ -57,6 +58,7 @@ class AddListViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+        
     }
-
+    
 }

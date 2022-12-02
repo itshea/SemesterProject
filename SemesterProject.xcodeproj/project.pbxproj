@@ -29,8 +29,10 @@
 		8CCB9CEF29336715000511F9 /* NotificationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB9CEE29336715000511F9 /* NotificationSchedulerViewController.swift */; };
 		8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */; };
 		8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */; };
-		8EB0BF852937841D00614CED /* AddListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0BF842937841D00614CED /* AddListItemViewController.swift */; };
-		8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */; };
+		8E14D769293A2C6D00646853 /* ListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14D768293A2C6D00646853 /* ListItemViewController.swift */; };
+		8E14D76B293A2CBB00646853 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14D76A293A2CBB00646853 /* ListsViewController.swift */; };
+		8E14D76D293A2CDF00646853 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14D76C293A2CDF00646853 /* NewListViewController.swift */; };
+		8E14D76F293A2CF400646853 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14D76E293A2CF400646853 /* ShowListViewController.swift */; };
 		BCAA5E852936C66600A6EB2D /* AddMyItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA5E842936C66600A6EB2D /* AddMyItemViewController.swift */; };
 		BCAA5E872936C67900A6EB2D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA5E862936C67900A6EB2D /* CalendarViewController.swift */; };
 		BCBAD00329369C1C006F3C70 /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBAD00229369C1C006F3C70 /* MyDate.swift */; };
@@ -61,10 +63,10 @@
 		8CCB9CEE29336715000511F9 /* NotificationSchedulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedulerViewController.swift; sourceTree = "<group>"; };
 		8CE83680291EC090006F4B46 /* AllergiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesTableViewController.swift; sourceTree = "<group>"; };
 		8CE83682291EC1E8006F4B46 /* AllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergiesTableViewCell.swift; sourceTree = "<group>"; };
-		8EB0BF842937841D00614CED /* AddListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListItemViewController.swift; sourceTree = "<group>"; };
-		8EC405DA291EA1AD00C54D37 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
-		8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewListViewController.swift; sourceTree = "<group>"; };
+		8E14D768293A2C6D00646853 /* ListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemViewController.swift; sourceTree = "<group>"; };
+		8E14D76A293A2CBB00646853 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		8E14D76C293A2CDF00646853 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
+		8E14D76E293A2CF400646853 /* ShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
 		BCAA5E842936C66600A6EB2D /* AddMyItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMyItemViewController.swift; sourceTree = "<group>"; };
 		BCAA5E862936C67900A6EB2D /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BCBAD00229369C1C006F3C70 /* MyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
@@ -109,10 +111,10 @@
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
 				03417E4628F07CDF00C17101 /* LoginViewController.swift */,
-				8EC405DA291EA1AD00C54D37 /* ListViewController.swift */,
-				8EC405DC291EA5DA00C54D37 /* AddListViewController.swift */,
-				8EC405DE291EAC7E00C54D37 /* ViewListViewController.swift */,
-				8EB0BF842937841D00614CED /* AddListItemViewController.swift */,
+				8E14D76A293A2CBB00646853 /* ListsViewController.swift */,
+				8E14D76C293A2CDF00646853 /* NewListViewController.swift */,
+				8E14D76E293A2CF400646853 /* ShowListViewController.swift */,
+				8E14D768293A2C6D00646853 /* ListItemViewController.swift */,
 				03417E2C28F07AB800C17101 /* AppDelegate.swift */,
 				03417E2E28F07AB800C17101 /* SceneDelegate.swift */,
 				03417E3228F07AB800C17101 /* Main.storyboard */,
@@ -224,12 +226,16 @@
 				8CE83681291EC090006F4B46 /* AllergiesTableViewController.swift in Sources */,
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
+				8E14D76D293A2CDF00646853 /* NewListViewController.swift in Sources */,
 				033D5EBF2936CF5A00993553 /* MyTableViewCell.swift in Sources */,
+				8E14D76F293A2CF400646853 /* ShowListViewController.swift in Sources */,
 				BCBD636029357D73001F09F1 /* Dates.xcdatamodeld in Sources */,
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
 				8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */,
+				8E14D769293A2C6D00646853 /* ListItemViewController.swift in Sources */,
 				8CCB9CEF29336715000511F9 /* NotificationSchedulerViewController.swift in Sources */,
 				03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */,
+				8E14D76B293A2CBB00646853 /* ListsViewController.swift in Sources */,
 				BCBAD00329369C1C006F3C70 /* MyDate.swift in Sources */,
 				8CB1B8772931DFAD00BA1CF9 /* AddAllergyViewController.swift in Sources */,
 				8CE83683291EC1E8006F4B46 /* AllergiesTableViewCell.swift in Sources */,
@@ -239,10 +245,8 @@
 				8CB1B8792931F10200BA1CF9 /* DietaryRestrictionsViewController.swift in Sources */,
 				03417E4728F07CDF00C17101 /* LoginViewController.swift in Sources */,
 				03417E2F28F07AB800C17101 /* SceneDelegate.swift in Sources */,
-				8EC405DF291EAC7E00C54D37 /* ViewListViewController.swift in Sources */,
 				033D5EC32936D0D600993553 /* NotificationsViewController.swift in Sources */,
 				8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */,
-				8EB0BF852937841D00614CED /* AddListItemViewController.swift in Sources */,
 				8CCB9CED293366DA000511F9 /* ChangePasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
