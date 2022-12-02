@@ -42,7 +42,37 @@ class SignUpViewController: UIViewController {
                 self.errorMessage.text = "\(error.localizedDescription)"
             } else {
                 self.errorMessage.text = ""
+                self.createUser()
+                self.setUserDefaults()
             }
         }
     }
+    
+    func createUser() {
+        // set up user profile
+        currentUser.firstName = "\(firstName.text)"
+        currentUser.lastName = "\(lastName.text)"
+        currentUser.email = "\(email.text)"
+        currentUser.password = "\(pass)"
+        currentUser.profilePicture = defaultProfilePic!
+        
+        // initial settings
+        currentSettings.daysBeforeNotification = 3
+        currentSettings.muteNotifications = false
+        currentSettings.darkMode = false
+        currentSettings.color = "Green"
+        currentSettings.fontResize = 1.25
+        currentSettings.loggedIn = true
+    }
+    
+    func setUserDefaults() {
+        // save to User Defaults
+        userDefaults.set(currentSettings.daysBeforeNotification, forKey: "daysBeforeNotification")
+        userDefaults.set(currentSettings.muteNotifications, forKey: "muteNotifications")
+        userDefaults.set(currentSettings.darkMode, forKey: "darkMode")
+        userDefaults.set(currentSettings.color, forKey: "color")
+        userDefaults.set(currentSettings.fontResize, forKey: "fontResize")
+        userDefaults.set(currentSettings.loggedIn, forKey: "loggedIn")
+    }
+    
 }

@@ -9,15 +9,14 @@ import UIKit
 import AVFoundation
 
 public struct User {
-    var firstName = "Sarah"
-    var lastName = "Tsai"
-    var email = "sarahwtsai@utexas.edu"
-    var password = "123456"
+    var firstName = ""
+    var lastName = ""
+    var email = ""
+    var password = ""
     var allergyList:[Allergy] = []
     var dietList: [String] = []
     var dietBool = [Int] (repeating: 0, count: dietTypes.count)
     var profilePicture:UIImage = defaultProfilePic!
-    var loggedIn = true
 }
 
 public var currentUser = User()

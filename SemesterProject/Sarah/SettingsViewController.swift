@@ -9,12 +9,12 @@ import UIKit
 
 public struct Settings {
     var daysBeforeNotification = 3
-    var notificationTime = "8:00 AM"
     var muteNotifications = false
     var darkMode = false
-    var colorScheme = redColor
-    var color = "Red"
+    var colorScheme = greenColor
+    var color = "Green"
     var fontResize: CGFloat = 1.25
+    var loggedIn = false
 }
 
 public let userDefaults = UserDefaults.standard
@@ -47,8 +47,6 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUserDefaults() // this shouldn't be here, it's for the sign up page ONLY where no defaults have been set yet
-        loadUserDefaults()  // this should be placed in the home page too
         checkDarkMode()
         updateColor()
         updateNavBar()
@@ -142,37 +140,14 @@ class SettingsViewController: UIViewController {
         colorSchemeButton.menu = colorMenu
     }
     
-    func loadUserDefaults() {
-        currentSettings.daysBeforeNotification = userDefaults.integer(forKey: "daysBeforeNotification")
-        currentSettings.notificationTime = userDefaults.string(forKey: "notificationTime")!
-        currentSettings.muteNotifications = userDefaults.bool(forKey: "muteNotifications")
-        currentSettings.darkMode = userDefaults.bool(forKey: "darkMode")
-        currentSettings.color = userDefaults.string(forKey: "color")!
-        currentSettings.fontResize = CGFloat(userDefaults.float(forKey: "fontResize"))
-        
-        // determine color scheme
-        if currentSettings.color == "Red" {
-            currentSettings.colorScheme = redColor
-        } else if currentSettings.color == "Orange" {
-            currentSettings.colorScheme = orangeColor
-        } else if currentSettings.color == "Yellow" {
-            currentSettings.colorScheme = yellowColor
-        } else if currentSettings.color == "Green" {
-            currentSettings.colorScheme = greenColor
-        } else if currentSettings.color == "Blue" {
-            currentSettings.colorScheme = blueColor
-        } else {
-            currentSettings.colorScheme = purpleColor
-        }
-    }
-    
     func updateUserDefaults() {
+        // save to User Defaults
         userDefaults.set(currentSettings.daysBeforeNotification, forKey: "daysBeforeNotification")
-        userDefaults.set(currentSettings.notificationTime, forKey: "notificationTime")
         userDefaults.set(currentSettings.muteNotifications, forKey: "muteNotifications")
         userDefaults.set(currentSettings.darkMode, forKey: "darkMode")
         userDefaults.set(currentSettings.color, forKey: "color")
         userDefaults.set(currentSettings.fontResize, forKey: "fontResize")
+        userDefaults.set(currentSettings.loggedIn, forKey: "loggedIn")
     }
     
     func updateColor() {
@@ -246,7 +221,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func logOutPressed(_ sender: Any) {
-        currentUser.loggedIn = false
+        currentSettings.loggedIn = false
         self.updateUserDefaults()
     }
     

@@ -30,17 +30,40 @@ class LoginViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func loginButton(_ sender: Any) {
-        
         Auth.auth().signIn(withEmail: emailInput.text!, password: passInput.text!) {
             authResult, error in
             if let error = error as NSError? {
                 self.errorMessage.text = "\(error.localizedDescription)"
             } else {
                 self.errorMessage.text = ""
+                self.loadUserDefaults()
             }
         }
-            }
+    }
+    
+    func loadUserDefaults() {
+        currentSettings.daysBeforeNotification = userDefaults.integer(forKey: "daysBeforeNotification")
+        currentSettings.muteNotifications = userDefaults.bool(forKey: "muteNotifications")
+        currentSettings.darkMode = userDefaults.bool(forKey: "darkMode")
+        currentSettings.color = userDefaults.string(forKey: "color")!
+        currentSettings.fontResize = CGFloat(userDefaults.float(forKey: "fontResize"))
+        currentSettings.loggedIn = userDefaults.bool(forKey: "loggedIn")
+        
+        // determine color scheme
+        if currentSettings.color == "Red" {
+            currentSettings.colorScheme = redColor
+        } else if currentSettings.color == "Orange" {
+            currentSettings.colorScheme = orangeColor
+        } else if currentSettings.color == "Yellow" {
+            currentSettings.colorScheme = yellowColor
+        } else if currentSettings.color == "Green" {
+            currentSettings.colorScheme = greenColor
+        } else if currentSettings.color == "Blue" {
+            currentSettings.colorScheme = blueColor
+        } else {
+            currentSettings.colorScheme = purpleColor
+        }
+    }
 }
