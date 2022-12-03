@@ -15,8 +15,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var passCon: UITextField!
-    
     @IBOutlet weak var errorMessage: UILabel!
+    var signUpSuccess = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +44,24 @@ class SignUpViewController: UIViewController {
                 self.errorMessage.text = ""
                 self.createUser()
                 self.setUserDefaults()
-                self.performSegue(withIdentifier: "HomeSegue3", sender: nil)
+                self.signUpSuccess = true
+//                self.performSegue(withIdentifier: "HomeSegue3", sender: nil)
             }
         }
+    }
+    
+    // check for successful sign up before segue
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "HomeSegue3" {
+            if signUpSuccess {
+                return true
+            } else {
+                return false
+            }
+        } else if identifier == "LoginSegueIdentifier" {
+            return true
+        }
+        return false
     }
     
     func createUser() {

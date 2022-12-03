@@ -220,8 +220,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logOutPressed(_ sender: Any) {
         currentSettings.loggedIn = false
-        try! Auth.auth().signOut()
         self.updateUserDefaults()
+        try! Auth.auth().signOut()
     }
     
     func updateNavBar() {

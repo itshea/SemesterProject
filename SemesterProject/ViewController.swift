@@ -15,39 +15,56 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("view did load")
         print(Array(UserDefaults.standard.dictionaryRepresentation()))
         checkForAutoLogin()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("view controller, view will appear, checking for auto login ")
+        checkForAutoLogin()
+        print(Array(UserDefaults.standard.dictionaryRepresentation()))
+    }
+    
     // check for auto-login before segue
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print("should perform, autoLogin \(autoLogin)")
         if identifier == "HomeSegue4" {
             if autoLogin {
+                print("i should be segueing")
                 return true
             } else {
                 return false
             }
         } else if identifier == "LoginSegue2" {
+            print("loginsegue2")
+            return true
+        } else if identifier == "CASegueIdentifier" {
             return true
         }
+        print("no segue identified")
         return false
     }
 
     func checkForAutoLogin() {
         do {
             // see if current user is logged in
-            let autoLogin = userDefaults.bool(forKey: "loggedIn")
+            let autoLogin1 = userDefaults.bool(forKey: "loggedIn")
+            print("autoLogin1 \(autoLogin1)")
             // take user to calendar/home page
-            if autoLogin {
+            if autoLogin1 {
+                print("autoLogin1 is true, segue automatically")
                 autoLogin = true
-//                self.performSegue(withIdentifier: "HomeSegue4", sender: nil)
+                self.performSegue(withIdentifier: "HomeSegue4", sender: nil)
             } else {
+                print("autoLogin1 is false")
 //                self.performSegue(withIdentifier: "LoginSegue2", sender: nil)
                 autoLogin = false
             }
         }
         // have user log in again
         catch {
+            print("autoLogin1 is false in catch statement")
             self.performSegue(withIdentifier: "LoginSegue2", sender: nil)
         }
     }

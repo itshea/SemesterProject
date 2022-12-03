@@ -60,7 +60,9 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let cell = listTableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
+//        cell.textLabel?.textColor = currentSettings.colorScheme
         cell.textLabel?.text = items[listIndex][row]
+        cell.tintColor = currentSettings.colorScheme
         return cell
     }
     
