@@ -14,12 +14,13 @@ class ListItemViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     // variables
-    var delegate: UIViewController!
+    var delegate: ShowListViewController!
     var listKey:String = ""
     var itemIndex:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        itemIndex = listNames.firstIndex(of: listKey) ?? 0
         checkDarkMode()
         updateColor()
         updateFontSize(resize:currentSettings.fontResize)
@@ -69,9 +70,8 @@ class ListItemViewController: UIViewController {
         } else {
             items[itemIndex].append(textField.text!)
             
-            // reload table via delegate/protocol
-            let otherVC = delegate as! ItemAdder
-            otherVC.addItem(name: listKey, index: itemIndex)
+            // reload table via delegate
+            delegate.listTableView.reloadData()
             
             // automatically go back
             if let nav = self.navigationController {

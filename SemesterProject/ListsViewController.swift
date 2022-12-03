@@ -14,7 +14,7 @@ protocol ListAdder {
 
 // lists
 var listNames:[String] = []
-var items:[[String]] = [["ham", "cheese"]]
+var items:[[String]] = []
 
 class ListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListAdder {
     // IB outlets
@@ -62,6 +62,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         if editingStyle == UITableViewCell.EditingStyle.delete {
             listNames.remove(at: indexPath.row)
             listsTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+            items.remove(at: indexPath.row)
         }
     }
     
@@ -79,7 +80,6 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
            let listIndex = listsTableView.indexPathForSelectedRow?.row {
             nextVC.delegate = self
             nextVC.listName = listNames[listIndex]
-            nextVC.listIndex = listIndex
         }
     }
     

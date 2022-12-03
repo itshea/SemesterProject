@@ -7,12 +7,7 @@
 
 import UIKit
 
-// protocol for adding list
-protocol ItemAdder {
-    func addItem(name: String, index: Int)
-}
-
-class ShowListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ItemAdder {
+class ShowListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // IB outlets
     @IBOutlet weak var listNameLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
@@ -27,6 +22,8 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         listNameLabel.text = listName
+        listIndex = listNames.firstIndex(of: listNameLabel.text!) ?? 0
+        addButton.layer.cornerRadius = 20
         listTableView.delegate = self
         listTableView.dataSource = self
         checkDarkMode()
@@ -86,22 +83,12 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // add item segue
-    @IBAction func addListItemButtonPressed(_ sender: Any) {
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "AddListItemSegue",
-               let nextVC = segue.destination as? ListItemViewController {
-                nextVC.delegate = self
-                nextVC.listKey = listName
-                nextVC.itemIndex = listIndex
-            }
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddListItemSegue",
+           let nextVC = segue.destination as? ListItemViewController {
+            nextVC.delegate = self
+            nextVC.listKey = listNameLabel.text!
         }
-    }
-    
-    // reload table via delegate/protocol
-    func addItem(name: String, index: Int) {
-        listNameLabel.text = name
-        listIndex = index
-        listTableView.reloadData()
     }
     
     // dark mode settings
