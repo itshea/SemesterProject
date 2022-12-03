@@ -55,7 +55,6 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
 
         // changes the text based on food item
         cell.foodLabel.text = "Your \(self.foodItems[indexPath.row]) is/are about to expire."
-
         return cell
 
     }
@@ -68,23 +67,16 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-
         return .delete
-
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
-
             tableView.beginUpdates()
-
             foodItems.remove(at: indexPath.row)
-
             tableView.deleteRows(at: [indexPath], with: .fade)
-
             tableView.endUpdates()
-
         }
 
     }
