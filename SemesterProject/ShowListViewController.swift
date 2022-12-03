@@ -15,6 +15,7 @@ protocol ItemAdder {
 class ShowListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ItemAdder {
     // IB outlets
     @IBOutlet weak var listNameLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var listTableView: UITableView!
     
     // variables
@@ -28,6 +29,26 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
         listNameLabel.text = listName
         listTableView.delegate = self
         listTableView.dataSource = self
+        checkDarkMode()
+        updateColor()
+        updateFontSize(resize:currentSettings.fontResize)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkDarkMode()
+        updateFontSize(resize:currentSettings.fontResize)
+        updateColor()
+    }
+    
+    func updateColor() {
+        listNameLabel.textColor = currentSettings.colorScheme
+        addButton.setTitleColor(currentSettings.colorScheme, for: .normal)
+    }
+    
+    func updateFontSize(resize: CGFloat) {
+        listNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+
     }
     
     // rows
@@ -79,6 +100,15 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
         listNameLabel.text = name
         listIndex = index
         listTableView.reloadData()
+    }
+    
+    // dark mode settings
+    func checkDarkMode() {
+        if currentSettings.darkMode {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 public struct Settings {
     var daysBeforeNotification = 3
@@ -33,7 +34,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var profileLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var changePassButton: UIButton!
-    @IBOutlet weak var viewProfileButton: UIButton!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var muteNotificationsLabel: UILabel!
     @IBOutlet weak var notificationButton: UIButton!
@@ -148,6 +148,8 @@ class SettingsViewController: UIViewController {
         userDefaults.set(currentSettings.color, forKey: "color")
         userDefaults.set(currentSettings.fontResize, forKey: "fontResize")
         userDefaults.set(currentSettings.loggedIn, forKey: "loggedIn")
+        userDefaults.set(currentUser.firstName, forKey: "firstName")
+        userDefaults.set(currentUser.lastName, forKey: "lastName")
     }
     
     func updateColor() {
@@ -183,9 +185,6 @@ class SettingsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserProfileSegue" {
-            let nextVC = segue.destination as! UserProfileNavigationController
-        }
         if segue.identifier == "PasswordSegue" {
             let nextVC = segue.destination as! ChangePasswordViewController
         }
@@ -209,7 +208,6 @@ class SettingsViewController: UIViewController {
         notificationsLabel.font = UIFont.boldSystemFont(ofSize: resize*20)
         displayLabel.font = UIFont.boldSystemFont(ofSize: resize*20)
         // set non-bold fonts
-        viewProfileButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         changePassButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         muteNotificationsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
         notificationButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
@@ -222,6 +220,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logOutPressed(_ sender: Any) {
         currentSettings.loggedIn = false
+        try! Auth.auth().signOut()
         self.updateUserDefaults()
     }
     

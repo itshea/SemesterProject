@@ -9,7 +9,9 @@ import UIKit
 
 class ListItemViewController: UIViewController {
     // IB outlets
+    @IBOutlet weak var newItemLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     
     // variables
     var delegate: UIViewController!
@@ -18,6 +20,26 @@ class ListItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkDarkMode()
+        updateColor()
+        updateFontSize(resize:currentSettings.fontResize)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkDarkMode()
+        updateFontSize(resize:currentSettings.fontResize)
+        updateColor()
+    }
+    
+    func updateColor() {
+        newItemLabel.textColor = currentSettings.colorScheme
+        addButton.setTitleColor(currentSettings.colorScheme, for: .normal)
+    }
+    
+    func updateFontSize(resize: CGFloat) {
+        newItemLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        textField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
     
     // add item
@@ -59,6 +81,15 @@ class ListItemViewController: UIViewController {
             }
         }
         
+    }
+    
+    // dark mode settings
+    func checkDarkMode() {
+        if currentSettings.darkMode {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
     }
     
 }

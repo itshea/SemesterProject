@@ -18,10 +18,14 @@ class DietaryRestrictionsViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateFontSize(resize:currentSettings.fontResize)
         checkDarkMode()
         dietTableView.delegate = self
         dietTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkDarkMode()
+        dietTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,13 +64,6 @@ class DietaryRestrictionsViewController: UIViewController, UITableViewDelegate, 
                 currentUser.dietBool[indexPath.row] = 1
             }
         }
-    }
-    
-    func updateFontSize(resize: CGFloat) {
-        print("updating font")
-//        settingsLabel.font = UIFont.boldSystemFont(ofSize: resize*45)
-//        viewProfileButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-//        muteNotificationsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
     
     // dark mode settings
