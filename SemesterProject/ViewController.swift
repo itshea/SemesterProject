@@ -11,27 +11,39 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var logoButton: UIButton!
+    var autoLogin = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view controller")
         print(Array(UserDefaults.standard.dictionaryRepresentation()))
         checkForAutoLogin()
-        // Do any additional setup after loading the view.
-        
     }
     
+    // check for auto-login before segue
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "HomeSegue4" {
+            if autoLogin {
+                return true
+            } else {
+                return false
+            }
+        } else if identifier == "LoginSegue2" {
+            return true
+        }
+        return false
+    }
+
     func checkForAutoLogin() {
         do {
             // see if current user is logged in
             let autoLogin = userDefaults.bool(forKey: "loggedIn")
-            print("autologin \(autoLogin)")
-            
             // take user to calendar/home page
             if autoLogin {
-                self.performSegue(withIdentifier: "HomeSegue4", sender: nil)
+                autoLogin = true
+//                self.performSegue(withIdentifier: "HomeSegue4", sender: nil)
             } else {
-                self.performSegue(withIdentifier: "LoginSegue2", sender: nil)
+//                self.performSegue(withIdentifier: "LoginSegue2", sender: nil)
+                autoLogin = false
             }
         }
         // have user log in again
@@ -40,13 +52,21 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func fadeOut(_ sender: Any) {
+    @IBAction func fadeOutAndIn(_ sender: Any) {
         self.logoButton.alpha = 1.0
         
         UIView.animate(
             withDuration: 3.0,
             animations: {
                 self.logoButton.alpha = 0.0
+            }
+        )
+        sleep(2)
+        
+        UIView.animate(
+            withDuration: 3.0,
+            animations: {
+                self.logoButton.alpha = 1.0
             }
         )
     }
