@@ -20,6 +20,7 @@
 		03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03417E4928F07DD900C17101 /* SignUpViewController.swift */; };
 		8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4277DA293482D800D8D057 /* UserProfileNavigationController.swift */; };
 		8C4277DD293484B300D8D057 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4277DC293484B300D8D057 /* SettingsNavigationController.swift */; };
+		8C59BA0D293A7B9500364231 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59BA0C293A7B9500364231 /* TabBarViewController.swift */; };
 		8C619FB22936BFCA0057E367 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C619FB12936BFC80057E367 /* GoogleService-Info.plist */; };
 		8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBA28F9BC860008652D /* UserProfileViewController.swift */; };
 		8C695CBD28F9BC980008652D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C695CBC28F9BC980008652D /* SettingsViewController.swift */; };
@@ -54,6 +55,7 @@
 		03417E4928F07DD900C17101 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C4277DA293482D800D8D057 /* UserProfileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNavigationController.swift; sourceTree = "<group>"; };
 		8C4277DC293484B300D8D057 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
+		8C59BA0C293A7B9500364231 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8C619FB12936BFC80057E367 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8C695CBA28F9BC860008652D /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		8C695CBC28F9BC980008652D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				8C619FB12936BFC80057E367 /* GoogleService-Info.plist */,
+				8C59BA0C293A7B9500364231 /* TabBarViewController.swift */,
 				BCBAD00229369C1C006F3C70 /* MyDate.swift */,
 				BCAA5E862936C67900A6EB2D /* CalendarViewController.swift */,
 				BCAA5E842936C66600A6EB2D /* AddMyItemViewController.swift */,
@@ -233,6 +236,7 @@
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
 				8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */,
 				8E14D769293A2C6D00646853 /* ListItemViewController.swift in Sources */,
+				8C59BA0D293A7B9500364231 /* TabBarViewController.swift in Sources */,
 				8CCB9CEF29336715000511F9 /* NotificationSchedulerViewController.swift in Sources */,
 				03417E2D28F07AB800C17101 /* AppDelegate.swift in Sources */,
 				8E14D76B293A2CBB00646853 /* ListsViewController.swift in Sources */,

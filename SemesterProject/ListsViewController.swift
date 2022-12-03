@@ -18,6 +18,8 @@ var items:[[String]] = [["ham", "cheese"]]
 
 class ListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListAdder {
     // IB outlets
+    @IBOutlet weak var listsLabel: UILabel!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var listsTableView: UITableView!
     
     // cell
@@ -27,6 +29,18 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         listsTableView.delegate = self
         listsTableView.dataSource = self
+        checkDarkMode()
+        updateNavBar()
+        updateColor()
+        updateFontSize(resize:currentSettings.fontResize)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkDarkMode()
+        updateNavBar()
+        listsTableView.reloadData()
+        updateColor()
+        updateFontSize(resize:currentSettings.fontResize)
     }
     
     // rows
@@ -38,6 +52,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         cell.textLabel?.text = listNames[row]
         return cell
     }
@@ -71,6 +86,32 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     // reload table via delegate/protocol
     func addList() {
         listsTableView.reloadData()
+    }
+    
+    func updateNavBar() {
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: currentSettings.fontResize*17)
+        ]
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
+        self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme
+    }
+
+    func updateColor() {
+        addButton.tintColor = currentSettings.colorScheme
+        listsLabel.textColor = currentSettings.colorScheme
+    }
+    
+    func updateFontSize(resize: CGFloat){
+        listsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*24))
+    }
+    
+    func checkDarkMode() {
+        if currentSettings.darkMode {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
     }
 
 }

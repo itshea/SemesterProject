@@ -12,7 +12,11 @@ class AddMyItemViewController: UIViewController {
     var delegate1:UIViewController!
     var newDate:MyDate = MyDate()
     
+    @IBOutlet weak var expireLabel: UILabel!
+    @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var addItemLabel: UILabel!
     @IBOutlet weak var DatePicker: UIDatePicker!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var itemName: UITextField!
     
     override func viewDidLoad() {
@@ -20,16 +24,18 @@ class AddMyItemViewController: UIViewController {
         checkDarkMode()
         updateColor()
         updateFontSize(resize:currentSettings.fontResize)
-
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkDarkMode()
+        updateFontSize(resize:currentSettings.fontResize)
+        updateColor()
     }
     
     @IBAction func changedate(sender: AnyObject) {
         let chosendate = self.DatePicker.date
         newDate.date = chosendate
     }
-
     
     @IBAction func newDoneButton(_ sender: Any) {
         if itemName.text == nil {
@@ -52,11 +58,6 @@ class AddMyItemViewController: UIViewController {
         }
     }
 
-
-    
-    
-    
-    
     // dark mode settings
     func checkDarkMode() {
         if currentSettings.darkMode {
@@ -65,21 +66,27 @@ class AddMyItemViewController: UIViewController {
             overrideUserInterfaceStyle = .light
         }
     }
-
     
     func updateFontSize(resize: CGFloat) {
-            // update bold fonts
-            itemName.font = UIFont.boldSystemFont(ofSize: resize*20)
-            //itemName.titleLabel?.font = UIFont.boldSystemFont(ofSize: resize*20)
-            // update non-bold fonts
-            itemName.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-            //itemName.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        // update bold fonts
+        addItemLabel.font = UIFont.boldSystemFont(ofSize: resize*40)
+        // update non-bold fonts
+        addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        expireLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*25))
+        itemNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*25))
+        itemName.font = UIFont.boldSystemFont(ofSize: resize*17)
+
     }
     
     func updateColor() {
             //DatePicker.setTitleColor(currentSettings.colorScheme, for: .normal)
             //DatePicker.textColor = currentSettings.colorScheme
-        }
+        expireLabel.textColor = currentSettings.colorScheme
+        itemNameLabel.textColor = currentSettings.colorScheme
+        addItemLabel.textColor = currentSettings.colorScheme
+        addButton.setTitleColor(currentSettings.colorScheme, for: .normal)
+
+    }
 
     /*
     // MARK: - Navigation

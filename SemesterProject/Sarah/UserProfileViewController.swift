@@ -57,6 +57,11 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
         lastNameField.text = currentUser.lastName
         emailField.text = currentUser.email
         // circular profile picture
+        setUpProfilePicture()
+    }
+    
+    // circular profile picture
+    func setUpProfilePicture() {
         profilePicture.layer.borderWidth = 7
         profilePicture.layer.masksToBounds = false
         profilePicture.layer.borderColor = currentSettings.colorScheme.cgColor
@@ -69,23 +74,25 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
         updateFontSize(resize:currentSettings.fontResize)
         checkDarkMode()
         updateColor()
+        updateNavBar()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         updateFontSize(resize:currentSettings.fontResize)
         checkDarkMode()
         updateColor()
+        updateNavBar()
     }
     
     func updateColor() {
         allergiesButton.setTitleColor(currentSettings.colorScheme, for: .normal)
         dietButton.setTitleColor(currentSettings.colorScheme, for: .normal)
-        profilePicButton.setTitleColor(currentSettings.colorScheme, for: .normal)
         firstNameLabel.textColor = currentSettings.colorScheme
         lastNameLabel.textColor = currentSettings.colorScheme
         emailLabel.textColor = currentSettings.colorScheme
         editButton.setTitleColor(currentSettings.colorScheme, for: .normal)
         profilePicButton.setTitleColor(currentSettings.colorScheme, for: .normal)
+        profilePicture.layer.borderColor = currentSettings.colorScheme.cgColor
     }
     
     // Called when 'return' key pressed
@@ -137,6 +144,8 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
             DispatchQueue.main.async {
                 self.profilePicture.image = currentUser.profilePicture
                 self.profilePicture.setNeedsDisplay()
+            // update user defaults
+                self.updateUserDefaults()
             }
             // Core Data
         } else {
@@ -151,6 +160,18 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
             alertVC.addAction(okAction)
             present(alertVC, animated:true)
         }
+    }
+    
+    func updateUserDefaults() {
+        // save to User Defaults
+        userDefaults.set(currentSettings.daysBeforeNotification, forKey: "daysBeforeNotification")
+        userDefaults.set(currentSettings.muteNotifications, forKey: "muteNotifications")
+        userDefaults.set(currentSettings.darkMode, forKey: "darkMode")
+        userDefaults.set(currentSettings.color, forKey: "color")
+        userDefaults.set(currentSettings.fontResize, forKey: "fontResize")
+        userDefaults.set(currentSettings.loggedIn, forKey: "loggedIn")
+        userDefaults.set(currentUser.firstName, forKey: "firstName")
+        userDefaults.set(currentUser.lastName, forKey: "lastName")
     }
     
     @IBAction func discardButtonPressed(_ sender: Any) {

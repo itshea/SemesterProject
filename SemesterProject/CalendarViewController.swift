@@ -26,24 +26,29 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var addItem: UIButton!
     @IBOutlet weak var pastOrderTable: UITableView!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let today = Date(timeInterval: 0, since: Date())
         let month = Calendar.current.component(.month, from: today)
         let day = Calendar.current.component(.day, from: today)
-        dateLabel.text = "\(day) \(month)"
+        let year = Calendar.current.component(.year, from: today)
+        dateLabel.text = "\(month)/\(day)/\(year)"
         checkDarkMode()
         updateFontSize(resize:currentSettings.fontResize)
         updateNavBar()
+        updateColor()
         pastOrderTable.delegate = self
         pastOrderTable.dataSource = self
     
         coreData()
-
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkDarkMode()
+        updateFontSize(resize:currentSettings.fontResize)
+        updateNavBar()
+        updateColor()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +57,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         let row = indexPath.row
         let newDate = dateList[row]
         if newDate.date == self.selectDate.date{
@@ -98,13 +104,13 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func updateNavBar() {
-            let attributes = [
-                NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: currentSettings.fontResize*17)
-            ]
-            self.navigationController?.navigationBar.titleTextAttributes = attributes
-            self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme
-        }
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: currentSettings.fontResize*17)
+        ]
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
+        self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme
+    }
 
     
     func checkDarkMode() {
@@ -115,18 +121,18 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-
-    
     func updateFontSize(resize: CGFloat) {
             // update bold fonts
-            dateLabel.font = UIFont.boldSystemFont(ofSize: resize*20)
-            addItem.titleLabel?.font = UIFont.boldSystemFont(ofSize: resize*20)
+            dateLabel.font = UIFont.boldSystemFont(ofSize: resize*45)
             // update non-bold fonts
-            dateLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
             addItem.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
-
     
+    func updateColor() {
+        dateLabel.textColor = currentSettings.colorScheme
+        addItem.setTitleColor(currentSettings.colorScheme, for: .normal)
+    }
+
     func coreData() {
         let fetchedResults = retrieveDates()
         
@@ -141,8 +147,9 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func changedate(sender: AnyObject) {
         let chosendate = self.selectDate.date
-        dateLabel.text = "\(chosendate)"
-
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M/dd/YYYY"
+        dateLabel.text = "\(dateFormatter.string(from: chosendate))"
     }
     
     func addDate(added: MyDate) {

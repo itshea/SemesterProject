@@ -9,6 +9,8 @@ import UIKit
 
 class NewListViewController: UIViewController {
     // IB outlets
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var newListLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
     // delegate variable
@@ -16,6 +18,15 @@ class NewListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkDarkMode()
+        updateColor()
+        updateFontSize(resize:currentSettings.fontResize)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkDarkMode()
+        updateFontSize(resize:currentSettings.fontResize)
+        updateColor()
     }
     
     // add list
@@ -59,6 +70,26 @@ class NewListViewController: UIViewController {
             }
         }
         
+    }
+    
+    // dark mode settings
+    func checkDarkMode() {
+        if currentSettings.darkMode {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
+    func updateColor() {
+        newListLabel.textColor = currentSettings.colorScheme
+        addButton.setTitleColor(currentSettings.colorScheme, for: .normal)
+    }
+    
+    func updateFontSize(resize: CGFloat) {
+        newListLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        textField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }
     
 }
