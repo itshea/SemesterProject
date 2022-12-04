@@ -34,7 +34,7 @@ class AddMyItemViewController: UIViewController {
     
     @IBAction func changedate(sender: AnyObject) {
         let chosendate = self.DatePicker.date
-        newDate.date = chosendate
+        newDate.expirationDate = chosendate
     }
     
     @IBAction func newDoneButton(_ sender: Any) {
@@ -50,7 +50,7 @@ class AddMyItemViewController: UIViewController {
             return
         } else {
             newDate.name = itemName.text
-            newDate.date = self.DatePicker.date
+            newDate.expirationDate = self.DatePicker.date
             
             let mainVC = delegate1 as! DateAdder
             mainVC.addDate(added:newDate)

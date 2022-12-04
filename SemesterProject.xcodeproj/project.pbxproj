@@ -36,8 +36,9 @@
 		8E14D76F293A2CF400646853 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14D76E293A2CF400646853 /* ShowListViewController.swift */; };
 		BCAA5E852936C66600A6EB2D /* AddMyItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA5E842936C66600A6EB2D /* AddMyItemViewController.swift */; };
 		BCAA5E872936C67900A6EB2D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA5E862936C67900A6EB2D /* CalendarViewController.swift */; };
+		BCB96139293D4C6D00E13A27 /* MyCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB96138293D4C6D00E13A27 /* MyCalendarTableViewCell.swift */; };
 		BCBAD00329369C1C006F3C70 /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBAD00229369C1C006F3C70 /* MyDate.swift */; };
-		BCBD636029357D73001F09F1 /* Dates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635E29357D73001F09F1 /* Dates.xcdatamodeld */; };
+		BCBD636029357D73001F09F1 /* SemesterProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCBD635E29357D73001F09F1 /* SemesterProject.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		8E14D76E293A2CF400646853 /* ShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
 		BCAA5E842936C66600A6EB2D /* AddMyItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMyItemViewController.swift; sourceTree = "<group>"; };
 		BCAA5E862936C67900A6EB2D /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		BCB96138293D4C6D00E13A27 /* MyCalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCalendarTableViewCell.swift; sourceTree = "<group>"; };
 		BCBAD00229369C1C006F3C70 /* MyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
 		BCBD635F29357D73001F09F1 /* Dates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dates.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				8C59BA0C293A7B9500364231 /* TabBarViewController.swift */,
 				BCBAD00229369C1C006F3C70 /* MyDate.swift */,
 				BCAA5E862936C67900A6EB2D /* CalendarViewController.swift */,
+				BCB96138293D4C6D00E13A27 /* MyCalendarTableViewCell.swift */,
 				BCAA5E842936C66600A6EB2D /* AddMyItemViewController.swift */,
 				03417E4928F07DD900C17101 /* SignUpViewController.swift */,
 				03417E3028F07AB800C17101 /* ViewController.swift */,
@@ -126,7 +129,7 @@
 				8C695CBF28F9BEA90008652D /* Sarah */,
 				03417E3528F07ABB00C17101 /* Assets.xcassets */,
 				03417E3728F07ABB00C17101 /* LaunchScreen.storyboard */,
-				BCBD635E29357D73001F09F1 /* Dates.xcdatamodeld */,
+				BCBD635E29357D73001F09F1 /* SemesterProject.xcdatamodeld */,
 				03417E3A28F07ABB00C17101 /* Info.plist */,
 			);
 			path = SemesterProject;
@@ -230,9 +233,10 @@
 				03417E4A28F07DD900C17101 /* SignUpViewController.swift in Sources */,
 				03417E3128F07AB800C17101 /* ViewController.swift in Sources */,
 				8E14D76D293A2CDF00646853 /* NewListViewController.swift in Sources */,
+				BCB96139293D4C6D00E13A27 /* MyCalendarTableViewCell.swift in Sources */,
 				033D5EBF2936CF5A00993553 /* MyTableViewCell.swift in Sources */,
 				8E14D76F293A2CF400646853 /* ShowListViewController.swift in Sources */,
-				BCBD636029357D73001F09F1 /* Dates.xcdatamodeld in Sources */,
+				BCBD636029357D73001F09F1 /* SemesterProject.xcdatamodeld in Sources */,
 				8C695CBB28F9BC860008652D /* UserProfileViewController.swift in Sources */,
 				8C4277DB293482D900D8D057 /* UserProfileNavigationController.swift in Sources */,
 				8E14D769293A2C6D00646853 /* ListItemViewController.swift in Sources */,
@@ -474,13 +478,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		BCBD635E29357D73001F09F1 /* Dates.xcdatamodeld */ = {
+		BCBD635E29357D73001F09F1 /* SemesterProject.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				BCBD635F29357D73001F09F1 /* Dates.xcdatamodel */,
 			);
 			currentVersion = BCBD635F29357D73001F09F1 /* Dates.xcdatamodel */;
-			path = Dates.xcdatamodeld;
+			path = SemesterProject.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

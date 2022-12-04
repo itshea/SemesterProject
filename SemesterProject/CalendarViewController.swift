@@ -37,6 +37,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         updateFontSize(resize:currentSettings.fontResize)
         updateNavBar()
         updateColor()
+        pastOrderTable.register(MyCalendarTableViewCell.self, forCellReuseIdentifier: "dateIdentifier")
         pastOrderTable.delegate = self
         pastOrderTable.dataSource = self
     
@@ -60,10 +61,24 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         let row = indexPath.row
         let newDate = dateList[row]
-        if newDate.date == self.selectDate.date{
+        let dateFormatter = DateFormatter()
+        let dateFormatter1 = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YY"
+        dateFormatter1.dateFormat = "dd/MM/YY"
+        
+        let today = dateFormatter.string(from: self.selectDate.date)
+        let expDate = dateFormatter1.string(from: newDate.expirationDate)
+        //print (self.selectDate.calendar.component(.day, from:selectDate.date))
+        
+        if today == expDate{
             cell.textLabel?.lineBreakMode = .byWordWrapping
             cell.textLabel?.numberOfLines = 5
-            cell.textLabel?.text = "\(newDate.name!)"
+            cell.textLabel?.text = "Expiring today: \(newDate.name!)"
+            return cell
+        }else{
+            cell.textLabel?.lineBreakMode = .byWordWrapping
+            cell.textLabel?.numberOfLines = 5
+            cell.textLabel?.text = "Expiring soon: \(newDate.name!) - \(expDate)"
         }
         return cell
     }
@@ -139,7 +154,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         for NewItem in fetchedResults {
             let thisDate = MyDate()
             thisDate.name = NewItem.value(forKey: "name") as! String
-            thisDate.date = NewItem.value(forKey: "date") as! Date
+            thisDate.expirationDate = NewItem.value(forKey: "date") as! Date
             thisDate.dateID = NewItem.objectID
             dateList.append(thisDate)
             }
@@ -150,6 +165,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M/dd/YYYY"
         dateLabel.text = "\(dateFormatter.string(from: chosendate))"
+        self.pastOrderTable.reloadData()
     }
     
     func addDate(added: MyDate) {
@@ -159,7 +175,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         let storedDate = NSEntityDescription.insertNewObject(forEntityName: "NewItem", into: context)
         
         storedDate.setValue(added.name, forKey: "name")
-        storedDate.setValue(added.date, forKey: "date")
+        storedDate.setValue(added.expirationDate, forKey: "expirationDate")
         storedDate.setValue(added.dateID, forKey: "dateID")
         
         // commit the changes

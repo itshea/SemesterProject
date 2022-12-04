@@ -11,6 +11,6 @@ import CoreData
 class MyDate : NSManagedObject{
     
     var name:String!
-    var date:Date!
+    var expirationDate:Date!
     var dateID:NSManagedObjectID?
 }
