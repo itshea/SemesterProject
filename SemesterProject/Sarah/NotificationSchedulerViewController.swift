@@ -76,14 +76,14 @@ class NotificationSchedulerViewController: UIViewController, UIPickerViewDelegat
     }
     
     func updateFontSize(resize: CGFloat) {
-        scheduleInfo.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        scheduleInfo.font = UIFont(name: "Symbol", ofSize: resize*17)
         var newSize: Float
         if resize*17 > 22 {
             newSize = 22
         } else {
             newSize = Float(resize*17)
         }
-        notifyMeLabel.font = UIFont.systemFont(ofSize: CGFloat(newSize))
+        notifyMeLabel.font = UIFont(name: "Symbol", ofSize: CGFloat(newSize))
     }
     
     // dark mode settings
