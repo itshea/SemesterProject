@@ -19,6 +19,7 @@ protocol DateAdder {
 class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DateAdder {
     
     var dateList:[MyDate] = []
+    var todayList:[MyDate] = []
     let textCellIdentifier = "dateIdentifier"
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -53,6 +54,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        populateToday()
         return dateList.count
     }
     
@@ -60,26 +62,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         let row = indexPath.row
-        let newDate = dateList[row]
-        let dateFormatter = DateFormatter()
-        let dateFormatter1 = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YY"
-        dateFormatter1.dateFormat = "dd/MM/YY"
-        
-        let today = dateFormatter.string(from: self.selectDate.date)
-        let expDate = dateFormatter1.string(from: newDate.expirationDate)
-        //print (self.selectDate.calendar.component(.day, from:selectDate.date))
-        
-        if today == expDate{
-            cell.textLabel?.lineBreakMode = .byWordWrapping
-            cell.textLabel?.numberOfLines = 5
-            cell.textLabel?.text = "Expiring today: \(newDate.name!)"
-            return cell
-        }else{
-            cell.textLabel?.lineBreakMode = .byWordWrapping
-            cell.textLabel?.numberOfLines = 5
-            cell.textLabel?.text = "Expiring soon: \(newDate.name!) - \(expDate)"
-        }
+        let newDate = todayList[row]
+    
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.numberOfLines = 5
+        cell.textLabel?.text = "Expiring soon: \(newDate.name!)"
         return cell
     }
     
@@ -110,6 +97,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
                 abort()
             }        }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyDateSegue",
@@ -154,7 +142,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         for NewItem in fetchedResults {
             let thisDate = MyDate()
             thisDate.name = NewItem.value(forKey: "name") as! String
-            thisDate.expirationDate = NewItem.value(forKey: "date") as! Date
+            thisDate.expirationDate = NewItem.value(forKey: "expirationDate") as! Date
             thisDate.dateID = NewItem.objectID
             dateList.append(thisDate)
             }
@@ -165,6 +153,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M/dd/YYYY"
         dateLabel.text = "\(dateFormatter.string(from: chosendate))"
+        populateToday()
         self.pastOrderTable.reloadData()
     }
     
@@ -179,7 +168,9 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         storedDate.setValue(added.dateID, forKey: "dateID")
         
         // commit the changes
-        saveContext()    }
+        saveContext()
+        
+    }
     
     func saveContext () {
         if context.hasChanges {
@@ -209,6 +200,16 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         return(fetchedResults)!
         
     }
+    
+    func populateToday() {
+        todayList = []
+        for myItem in dateList{
+            let dateFormatter1 = DateFormatter()
+            dateFormatter1.dateFormat = "dd/MM/YY"
+            if dateFormatter1.string(from: self.selectDate.date) == dateFormatter1.string(from: myItem.expirationDate){
+                todayList.append(myItem)
+            }
+        }
     /*
     // MARK: - Navigation
 
@@ -219,4 +220,5 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     */
 
+}
 }
