@@ -55,7 +55,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         populateToday()
-        return dateList.count
+        return todayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -165,7 +165,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         storedDate.setValue(added.name, forKey: "name")
         storedDate.setValue(added.expirationDate, forKey: "expirationDate")
-        storedDate.setValue(added.dateID, forKey: "dateID")
         
         // commit the changes
         saveContext()

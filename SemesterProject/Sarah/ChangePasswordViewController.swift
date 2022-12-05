@@ -86,14 +86,14 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateFontSize(resize: CGFloat) {
-        enterPassLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        enterPassLabel2.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        enterPassLabel3.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        oldPassword.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        newPassword1.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        newPassword2.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        changePasswordPressed.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        warningLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        enterPassLabel.font = UIFont(name: "Symbol", ofSize: resize*20)
+        enterPassLabel2.font = UIFont(name: "Symbol", ofSize: resize*20)
+        enterPassLabel3.font = UIFont(name: "Symbol", ofSize: resize*20)
+        oldPassword.font = UIFont(name: "Symbol", ofSize: resize*17)
+        newPassword1.font = UIFont(name: "Symbol", ofSize: resize*17)
+        newPassword2.font = UIFont(name: "Symbol", ofSize: resize*17)
+        changePasswordPressed.titleLabel?.font = UIFont(name: "Helvetica-Bold", ofSize: resize*25)
+        warningLabel.font = UIFont(name: "Symbol", ofSize: resize*17)
     }
     
     func updateColor() {

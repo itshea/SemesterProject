@@ -69,23 +69,24 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func fadeOutAndIn(_ sender: Any) {
-        self.logoButton.alpha = 1.0
-        
-        UIView.animate(
-            withDuration: 3.0,
-            animations: {
-                self.logoButton.alpha = 0.0
-            }
-        )
-        sleep(2)
-        
-        UIView.animate(
-            withDuration: 3.0,
-            animations: {
-                self.logoButton.alpha = 1.0
-            }
-        )
+    @IBAction func recognizeTapGesture(_ recognizer: UITapGestureRecognizer) {
+            self.logoButton.alpha = 1.0
+            
+            UIView.animate(
+                withDuration: 3.0,
+                animations: {
+                    self.logoButton.alpha = 0.0
+                }
+            )
+            sleep(2)
+            
+            UIView.animate(
+                withDuration: 3.0,
+                animations: {
+                    self.logoButton.alpha = 1.0
+                }
+            )
+
     }
 }
 
