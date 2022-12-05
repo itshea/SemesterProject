@@ -9,7 +9,6 @@ import UIKit
 import CoreData
 import SwiftUI
 
-
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context = appDelegate.persistentContainer.viewContext
 
@@ -19,7 +18,6 @@ protocol DateAdder {
 
 class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DateAdder {
     
-    public var dateList:[MyDate] = []
     var todayList:[MyDate] = []
     let textCellIdentifier = "dateIdentifier"
     
@@ -115,7 +113,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme
     }
-
     
     func checkDarkMode() {
         if currentSettings.darkMode {
@@ -139,14 +136,8 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
 
     func coreData() {
         let fetchedResults = retrieveDates()
-        
-        for NewItem in fetchedResults {
-            let thisDate = MyDate()
-            thisDate.name = NewItem.value(forKey: "name") as! String
-            thisDate.expirationDate = NewItem.value(forKey: "expirationDate") as! Date
-            thisDate.dateID = NewItem.objectID
-            dateList.append(thisDate)
-            }
+        let user = fetchedResults[0]
+        currentUser.itemList = user.value(forKey: "itemList") as! [MyDate]
     }
     
     @IBAction func changedate(sender: AnyObject) {
@@ -159,13 +150,12 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func addDate(added: MyDate) {
-        dateList.append(added)
+        currentUser.itemList.append(added)
         self.pastOrderTable.reloadData()
         
-        let storedDate = NSEntityDescription.insertNewObject(forEntityName: "NewItem", into: context)
+        let storedDate = NSEntityDescription.insertNewObject(forEntityName: "MyUser", into: context)
         
-        storedDate.setValue(added.name, forKey: "name")
-        storedDate.setValue(added.expirationDate, forKey: "expirationDate")
+        storedDate.setValue(added, forKey: "itemList")
         
         // commit the changes
         saveContext()
@@ -185,7 +175,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func retrieveDates() -> [NSManagedObject] {
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyUser")
         var fetchedResults:[NSManagedObject]? = nil
         
         do {
@@ -197,13 +187,15 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
             abort()
         }
         
+        
+        
         return(fetchedResults)!
         
     }
     
     func populateToday() {
         todayList = []
-        for myItem in dateList{
+        for myItem in currentUser.itemList{
             let dateFormatter1 = DateFormatter()
             dateFormatter1.dateFormat = "dd/MM/YY"
             if dateFormatter1.string(from: self.selectDate.date) == dateFormatter1.string(from: myItem.expirationDate){

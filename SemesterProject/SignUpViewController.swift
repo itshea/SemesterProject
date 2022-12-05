@@ -132,7 +132,7 @@ class SignUpViewController: UIViewController {
         currentUser.dietList = user.value(forKey: "dietList") as! [String]
         currentUser.listNames = user.value(forKey: "listNames") as! [String]
         currentUser.items = user.value(forKey: "items") as! [[String]]
-
+        currentUser.itemList = user.value(forKey: "itemList") as! [MyDate]
     }
     
     // retrieve core data

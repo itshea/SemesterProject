@@ -88,18 +88,23 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
             let toDelete = foodItems.remove(at: indexPath.row)
             foodItems.remove(at: indexPath.row)
             
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyUser")
             var fetchedResults:[NSManagedObject]
             
             do {
                 try fetchedResults = newContext.fetch(request) as! [NSManagedObject]
                 
-                if fetchedResults.count > 0 {
-                    for result:AnyObject in fetchedResults {
-                        if result.name == toDelete{
-                            newContext.delete(result as! NSManagedObject)
-                        }
+                let user = fetchedResults[0]
+                currentUser.itemList = user.value(forKey: "itemList") as! [MyDate]
+                
+                if currentUser.itemList.count > 0 {
+                    for foodItem in currentUser.itemList{
+                        if foodItem.name == toDelete{
+                            if let itemToRemoveIndex = currentUser.itemList.index(of: foodItem) {
+                                    currentUser.itemList.remove(at: itemToRemoveIndex)
+                                }
                     }
+                }
                 }
                 saveContext()
                 
@@ -127,12 +132,15 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     func coreData() {
         let fetchedResults = retrieveDates()
         
+        let user = fetchedResults[0]
+        currentUser.itemList = user.value(forKey: "itemList") as! [MyDate]
+        
         let today = Date(timeInterval: 0, since: Date())
         
-        for NewItem in fetchedResults {
-            let expDate = NewItem.value(forKey: "expirationDate") as! Date
+        for NewItem in currentUser.itemList {
+            let expDate = NewItem.expirationDate!
             if expDate > today {
-                let itemName = NewItem.value(forKey: "name") as! String
+                let itemName = NewItem.name as! String
                 if foodItems.contains(itemName) == false{
                     foodItems.append(itemName)
                 }
@@ -142,7 +150,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func retrieveDates() -> [NSManagedObject] {
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyUser")
         var fetchedResults:[NSManagedObject]? = nil
         
         do {

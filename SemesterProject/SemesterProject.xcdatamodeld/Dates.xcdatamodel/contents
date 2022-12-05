@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="MyUser" representedClassName="MyUser" syncable="YES" codeGenerationType="class">
         <attribute name="allergy" optional="YES" attributeType="Transformable">
             <userInfo>
@@ -9,11 +9,11 @@
         </attribute>
         <attribute name="dietList" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="itemList" optional="YES" attributeType="Transformable"/>
         <attribute name="items" optional="YES" attributeType="Transformable" customClassName="[[String]]"/>
         <attribute name="listNames" optional="YES" attributeType="Transformable" customClassName="[String]"/>
     </entity>
-    <entity name="NewItem" representedClassName="NewItem" syncable="YES" codeGenerationType="class">
-        <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-    </entity>
+    <elements>
+        <element name="MyUser" positionX="160" positionY="192" width="128" height="119"/>
+    </elements>
 </model>

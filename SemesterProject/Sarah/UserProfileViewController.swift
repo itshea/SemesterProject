@@ -19,6 +19,7 @@ public struct User {
     var profilePicture:UIImage = defaultProfilePic!
     var listNames:[String] = []
     var items:[[String]] = []
+    var itemList:[MyDate] = []
 }
 
 public var currentUser = User()
