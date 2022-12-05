@@ -18,7 +18,7 @@ protocol DateAdder {
 
 class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DateAdder {
     
-    var dateList:[MyDate] = []
+    public var dateList:[MyDate] = []
     var todayList:[MyDate] = []
     let textCellIdentifier = "dateIdentifier"
     

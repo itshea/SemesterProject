@@ -8,6 +8,7 @@
 import UIKit
 
 var daysList = Array(1...365)
+public var days:Int = currentSettings.daysBeforeNotification
 
 // set date picker initial values 
 extension UIDatePicker {
@@ -24,7 +25,6 @@ class NotificationSchedulerViewController: UIViewController, UIPickerViewDelegat
     @IBOutlet weak var notifyMeLabel: UILabel!
     @IBOutlet weak var notificationDelay: UIPickerView!
     @IBOutlet weak var scheduleInfo: UILabel!
-    var days:Int = currentSettings.daysBeforeNotification
     
     override func viewDidLoad() {
         super.viewDidLoad()

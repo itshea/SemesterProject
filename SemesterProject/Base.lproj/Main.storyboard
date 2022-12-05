@@ -772,7 +772,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="ADD ITEM"/>
                                 <connections>
-                                    <segue destination="ydC-BW-9w4" kind="show" id="AGB-VL-7MW"/>
+                                    <segue destination="ydC-BW-9w4" kind="show" identifier="MyDateSegue" id="AGB-VL-7MW"/>
                                 </connections>
                             </button>
                             <color key="tintColor" red="0.46679699419999998" green="0.88773304220000004" blue="0.59010094400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
