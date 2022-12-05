@@ -44,8 +44,8 @@ class AllergiesTableViewController: UITableViewController {
         cell.allergySeverityLabel?.text = tempCell.severity
         // resize
         cell.foodLabel.font =
-            UIFont(name: "Symbol", ofSize: CGFloat(currentSettings.fontResize*20))
-        cell.allergySeverityLabel.font = UIFont(name: "Symbol", ofSize: CGFloat(currentSettings.fontResize*20))
+            UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*16))
+        cell.allergySeverityLabel.font = UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*16))
         // change text color based on severity level
         if tempCell.severity == "Mild" {
             cell.allergySeverityLabel.textColor = greenColor

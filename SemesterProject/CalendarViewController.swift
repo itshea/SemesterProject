@@ -126,7 +126,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func updateFontSize(resize: CGFloat) {
             // update bold fonts
-            dateLabel.font = UIFont.boldSystemFont(ofSize: resize*45)
+            dateLabel.font = UIFont.boldSystemFont(ofSize: resize*40)
             // update non-bold fonts
             addItem.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
     }

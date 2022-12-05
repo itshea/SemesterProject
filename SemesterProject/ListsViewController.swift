@@ -103,7 +103,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func updateFontSize(resize: CGFloat){
-        listsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*24))
+        listsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*22))
     }
     
     func checkDarkMode() {
