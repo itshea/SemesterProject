@@ -280,25 +280,25 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func updateFontSize(resize: CGFloat) {
-        firstNameLabel.font = UIFont(name: "Symbol", ofSize: resize*17)
-        lastNameLabel.font = UIFont(name: "Symbol", ofSize: resize*17)
-        emailLabel.font = UIFont(name: "Symbol", ofSize: resize*17)
-        firstNameField.font = UIFont(name: "Symbol", ofSize: resize*17)
-        lastNameField.font = UIFont(name: "Symbol", ofSize: resize*17)
-        emailField.font = UIFont(name: "Symbol", ofSize: resize*17)
-        allergiesButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", ofSize: resize*20)
-        dietButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", ofSize: resize*20)
+        firstNameLabel.font = UIFont(name: "Symbol", size: resize*15)
+        lastNameLabel.font = UIFont(name: "Symbol", size: resize*15)
+        emailLabel.font = UIFont(name: "Symbol", size: resize*15)
+        firstNameField.font = UIFont(name: "Symbol", size: resize*15)
+        lastNameField.font = UIFont(name: "Symbol", size: resize*15)
+        emailField.font = UIFont(name: "Symbol", size: resize*15)
+        allergiesButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: resize*16)
+        dietButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: resize*16)
 //        discardButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
 //        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        profilePicButton.titleLabel?.font =        UIFont(name: "Helvetica-Bold", ofSize: CGFloat(resize*17))
-        editButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", ofSize: CGFloat(resize*17))
+        profilePicButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*14))
+        editButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*14))
     }
     
     func updateNavBar() {
         let attributes = [
             NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
             NSAttributedString.Key.font:
-                UIFont(name: "Symbol", ofSize: currentSettings.fontResize*17)
+                UIFont(name: "Symbol", size: currentSettings.fontResize*17)
         ]
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme

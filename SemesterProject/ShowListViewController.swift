@@ -43,7 +43,7 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func updateFontSize(resize: CGFloat) {
-        listNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        listNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*20))
         addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
 
     }

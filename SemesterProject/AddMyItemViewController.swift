@@ -69,11 +69,11 @@ class AddMyItemViewController: UIViewController {
     
     func updateFontSize(resize: CGFloat) {
         // update bold fonts
-        addItemLabel.font = UIFont.boldSystemFont(ofSize: resize*40)
+        addItemLabel.font = UIFont.boldSystemFont(ofSize: resize*35)
         // update non-bold fonts
         addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        expireLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*25))
-        itemNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*25))
+        expireLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*20))
+        itemNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*20))
         itemName.font = UIFont.boldSystemFont(ofSize: resize*17)
 
     }

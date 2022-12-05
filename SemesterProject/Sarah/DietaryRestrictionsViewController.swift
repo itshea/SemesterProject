@@ -37,7 +37,7 @@ class DietaryRestrictionsViewController: UIViewController, UITableViewDelegate, 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         cell.textLabel?.text = dietTypes[row]
         cell.textLabel?.font =
-            UIFont(name: "Symbol", ofSize: CGFloat(currentSettings.fontResize*17))
+        UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*17))
         // previously selected rows have checkmarks
         if currentUser.dietBool[row] == 0 {
             cell.accessoryType = .none
