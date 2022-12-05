@@ -7,6 +7,15 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
+
+let appDelegate2 = UIApplication.shared.delegate as! AppDelegate
+let context2 = appDelegate.persistentContainer.viewContext
+
+// protocol for saving core data
+protocol DataSaver {
+    func saveData()
+}
 
 class SignUpViewController: UIViewController {
 
@@ -96,6 +105,90 @@ class SignUpViewController: UIViewController {
         userDefaults.set(currentSettings.loggedIn, forKey: "loggedIn")
         userDefaults.set(currentUser.firstName, forKey: "firstName")
         userDefaults.set(currentUser.lastName, forKey: "lastName")
+    }
+    
+    // save to core data
+    func saveCoreData() {
+        let user = NSEntityDescription.insertNewObject(forEntityName: "MyUser", into: context)
+        
+        user.setValue(currentUser.email, forKey: "email")
+        user.setValue(currentUser.allergyList, forKey: "allergy")
+        user.setValue(currentUser.dietList, forKey: "dietList")
+        user.setValue(currentUser.listNames, forKey: "listNames")
+        user.setValue(currentUser.items, forKey: "items")
+        
+        saveContext()
+        
+    }
+    
+    // repopulate with fetched core data
+    func loadCoreData() {
+        let fetchedResults = retrieveCoreData()
+        
+        let user = fetchedResults[0]
+        
+        currentUser.email = user.value(forKey: "email") as! String
+        currentUser.allergyList = user.value(forKey: "allergyList") as! [Allergy]
+        currentUser.dietList = user.value(forKey: "dietList") as! [String]
+        currentUser.listNames = user.value(forKey: "listNames") as! [String]
+        currentUser.items = user.value(forKey: "items") as! [[String]]
+
+    }
+    
+    // retrieve core data
+    func retrieveCoreData() -> [NSManagedObject] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyUser")
+        var fetchedResults:[NSManagedObject]? = nil
+                
+        // let predicate = NSPredicate(format: "name CONTAINS[c] 'ie'")
+        // request.predicate = predicate
+                
+        do {
+            try fetchedResults = context.fetch(request) as? [NSManagedObject]
+        } catch {
+            // if an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+                
+        return(fetchedResults)!
+    }
+
+    // clear core data if needed
+    func clearCoreData() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Pisa")
+        var fetchedResults:[NSManagedObject]
+                    
+        do {
+            try fetchedResults = context.fetch(request) as! [NSManagedObject]
+                        
+            if fetchedResults.count > 0 {
+                for result:AnyObject in fetchedResults {
+                    context.delete(result as! NSManagedObject)
+                }
+            }
+            saveContext()
+                    
+        } catch {
+            // if an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+            
+    }
+
+    // save context
+    func saveContext () {
+        if context2.hasChanges {
+            do {
+                try context2.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
     
 }
