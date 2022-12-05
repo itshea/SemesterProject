@@ -22,7 +22,7 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         listNameLabel.text = listName
-        listIndex = listNames.firstIndex(of: listNameLabel.text!) ?? 0
+        listIndex = currentUser.listNames.firstIndex(of: listNameLabel.text!) ?? 0
         addButton.layer.cornerRadius = 20
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -43,14 +43,14 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func updateFontSize(resize: CGFloat) {
-        listNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        listNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*20))
         addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
 
     }
     
     // rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[listIndex].count
+        return currentUser.items[listIndex].count
     }
     
     // cells
@@ -58,7 +58,7 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
         let row = indexPath.row
         let cell = listTableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
 //        cell.textLabel?.textColor = currentSettings.colorScheme
-        cell.textLabel?.text = items[listIndex][row]
+        cell.textLabel?.text = currentUser.items[listIndex][row]
         cell.tintColor = currentSettings.colorScheme
         return cell
     }
@@ -66,7 +66,7 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     // delete rows
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            items[listIndex].remove(at: indexPath.row)
+            currentUser.items[listIndex].remove(at: indexPath.row)
             listTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
         }
     }
@@ -74,6 +74,8 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     // puts checkmark
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = listTableView.cellForRow(at: indexPath as IndexPath) {
+            cell.tintColor = currentSettings.colorScheme
+            
             if cell.accessoryType == .none {
                 cell.accessoryType = .checkmark
             } else {

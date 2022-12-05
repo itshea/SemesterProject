@@ -74,11 +74,11 @@ class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func updateFontSize(resize: CGFloat) {
         foodLabel.font =
-            UIFont(name: "Symbol", ofSize: CGFloat(resize*17))
-        severityLabel.font = UIFont(name: "Symbol", ofSize: CGFloat(resize*17))
-        foodTextField.font = UIFont(name: "Symbol", ofSize: CGFloat(resize*17))
-        warningLabel.font = UIFont(name: "Symbol", ofSize: CGFloat(resize*17))
-        addAllergyButton.titleLabel?.font = UIFont(name: "Helvetic-Bold", ofSize: CGFloat(resize*20))
+        UIFont(name: "Symbol", size: CGFloat(resize*17))
+        severityLabel.font = UIFont(name: "Symbol", size: CGFloat(resize*17))
+        foodTextField.font = UIFont(name: "Symbol", size: CGFloat(resize*17))
+        warningLabel.font = UIFont(name: "Symbol", size: CGFloat(resize*17))
+        addAllergyButton.titleLabel?.font = UIFont(name: "Helvetic-Bold", size: CGFloat(resize*20))
     }
     
     func updateColor() {

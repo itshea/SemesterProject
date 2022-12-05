@@ -44,7 +44,7 @@ class NewListViewController: UIViewController {
             present(controller, animated: true)
         }
         // list already exists
-        else if listNames.firstIndex(of: textField.text!) != nil {
+        else if currentUser.listNames.firstIndex(of: textField.text!) != nil {
             // alert
             let controller = UIAlertController(
                 title: "List already exists",
@@ -55,8 +55,8 @@ class NewListViewController: UIViewController {
                 style: .default))
             present(controller, animated: true)
         } else {
-            listNames.append(textField.text!)
-            items.append([])
+            currentUser.listNames.append(textField.text!)
+            currentUser.items.append([])
             
             // reload table via delegate/protocol
             let otherVC = delegate as! ListAdder

@@ -8,22 +8,16 @@
 import UIKit
 import CoreData
 
-/*class Notification {
-
+/*
+class Notification {
+ 
     var food: String
-
-    
-
+ 
     init(foodItem:String){
-
         self.food = foodItem
-
     }
-
-    
-
+ 
 }
-
 */
 
 let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -49,6 +43,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        coreData()
         checkDarkMode()
         tableView.reloadData()
     }
@@ -69,10 +64,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MyTableViewCell
         cell.addButton.setTitleColor(currentSettings.colorScheme, for: .normal)
-        cell.addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*20))
+        cell.addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         // changes the text based on food item
         cell.foodLabel.text = "Expiring soon: \(self.foodItems[indexPath.row])"
-        cell.foodLabel.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*20))
+        cell.foodLabel.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
         return cell
     }
 
