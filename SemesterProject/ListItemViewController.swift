@@ -20,7 +20,7 @@ class ListItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemIndex = listNames.firstIndex(of: listKey) ?? 0
+        itemIndex = currentUser.listNames.firstIndex(of: listKey) ?? 0
         checkDarkMode()
         updateColor()
         updateFontSize(resize:currentSettings.fontResize)
@@ -57,7 +57,7 @@ class ListItemViewController: UIViewController {
             present(controller, animated: true)
         }
         // item already exists
-        else if items[itemIndex].firstIndex(of: textField.text!) != nil {
+        else if currentUser.items[itemIndex].firstIndex(of: textField.text!) != nil {
             // alert
             let controller = UIAlertController(
                 title: "Item already exists",
@@ -67,8 +67,42 @@ class ListItemViewController: UIViewController {
                 title: "OK",
                 style: .default))
             present(controller, animated: true)
-        } else {
-            items[itemIndex].append(textField.text!)
+        }
+        // check allergies
+        else if checkForAllergy() {
+            // send alert
+            let controller = UIAlertController(
+                title: "Allergy Warning",
+                message: "You might be allergic to this item. Do you still want to add this item to your list?",
+                preferredStyle: .alert)
+            controller.addAction(UIAlertAction(
+                title: "Add",
+                style: .default,
+                handler: {
+                    (paramAction:UIAlertAction!) in
+                    currentUser.items[self.itemIndex].append(self.textField.text!)
+                    
+                    // reload table via delegate
+                    self.delegate.listTableView.reloadData()
+                    
+                    // automatically go back
+                    if let nav = self.navigationController {
+                        nav.popViewController(animated: true)
+                    } else {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }))
+            controller.addAction(UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: {
+                    (paramAction:UIAlertAction!) in
+                    print("That was a risky move")
+                }))
+            present(controller, animated: true)
+        }
+        else {
+            currentUser.items[itemIndex].append(textField.text!)
             
             // reload table via delegate
             delegate.listTableView.reloadData()
@@ -81,6 +115,17 @@ class ListItemViewController: UIViewController {
             }
         }
         
+    }
+    
+    // check if user is about to add an item they are allergic to
+    func checkForAllergy() -> Bool {
+        let newFood = textField.text!
+        for allergy in currentUser.allergyList {
+            if newFood.lowercased() == allergy.foodName.lowercased() {
+                return true
+            }
+        }
+        return false
     }
     
     // dark mode settings

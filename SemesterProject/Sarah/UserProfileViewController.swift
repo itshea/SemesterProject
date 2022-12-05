@@ -17,6 +17,8 @@ public struct User {
     var dietList: [String] = []
     var dietBool = [Int] (repeating: 0, count: dietTypes.count)
     var profilePicture:UIImage = defaultProfilePic!
+    var listNames:[String] = []
+    var items:[[String]] = []
 }
 
 public var currentUser = User()
@@ -147,7 +149,6 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
             // update user defaults
                 self.updateUserDefaults()
             }
-            // Core Data
         } else {
             // alert
             let alertVC = UIAlertController(

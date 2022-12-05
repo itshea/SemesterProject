@@ -8,23 +8,16 @@
 import UIKit
 import CoreData
 
-
-/*class Notification {
-
+/*
+class Notification {
+ 
     var food: String
-
-    
-
+ 
     init(foodItem:String){
-
         self.food = foodItem
-
     }
-
-    
-
+ 
 }
-
 */
 
 let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -50,6 +43,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        coreData()
         checkDarkMode()
         tableView.reloadData()
     }
@@ -103,7 +97,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         for NewItem in fetchedResults {
             let expDate = NewItem.value(forKey: "expirationDate") as! Date
             if expDate > today {
-                self.foodItems.append(NewItem.value(forKey: "name") as! String)
+                let itemName = NewItem.value(forKey: "name") as! String
+                if foodItems.contains(itemName) == false {
+                    foodItems.append(itemName)
+                }
             }
         }
     }
