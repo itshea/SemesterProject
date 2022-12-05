@@ -72,9 +72,9 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let toDelete = dateList.remove(at: indexPath.row)
+            let toDelete = todayList.remove(at: indexPath.row)
+            todayList.remove(at: indexPath.row)
             pastOrderTable.deleteRows(at: [indexPath], with: .fade)
-            
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
             var fetchedResults:[NSManagedObject]
             

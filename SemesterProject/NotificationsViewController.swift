@@ -83,10 +83,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            foodItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
             let toDelete = foodItems.remove(at: indexPath.row)
+            foodItems.remove(at: indexPath.row)
             
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
             var fetchedResults:[NSManagedObject]
