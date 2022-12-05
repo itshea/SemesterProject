@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 
 /*class Notification {
@@ -27,6 +27,9 @@ import UIKit
 
 */
 
+let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
+let newContext = myAppDelegate.persistentContainer.viewContext
+
 
 
 class NotificationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -36,10 +39,11 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     let reuseIdentifier = "MyCell"
 
     // create an array of names of food items
-    public var foodItems = ["apples", "oranges", "pork", "broccoli", "mozzarella cheese", "wheat bread", "milk", "potatos", "creamer", "orange juice", "cheerios"]// [String]()
+    public var foodItems:[String] = []// [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        coreData()
         tableView.delegate = self
         tableView.dataSource = self
         checkDarkMode()
@@ -89,5 +93,36 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
+    }
+    
+    func coreData() {
+        let fetchedResults = retrieveDates()
+        
+        let today = Date(timeInterval: 0, since: Date())
+        
+        for NewItem in fetchedResults {
+            let expDate = NewItem.value(forKey: "expirationDate") as! Date
+            if expDate > today {
+                self.foodItems.append(NewItem.value(forKey: "name") as! String)
+            }
+        }
+    }
+    
+    func retrieveDates() -> [NSManagedObject] {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
+        var fetchedResults:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = newContext.fetch(request) as? [NSManagedObject]
+        } catch {
+            // if an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        return(fetchedResults)!
+        
     }
 }

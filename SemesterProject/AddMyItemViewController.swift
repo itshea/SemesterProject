@@ -37,6 +37,7 @@ class AddMyItemViewController: UIViewController {
         newDate.expirationDate = chosendate
     }
     
+    
     @IBAction func newDoneButton(_ sender: Any) {
         if itemName.text == nil {
             let controller = UIAlertController(
@@ -49,9 +50,44 @@ class AddMyItemViewController: UIViewController {
             present(controller, animated: true)
             return
         } else {
+            //read in information about item
             newDate.name = itemName.text
             newDate.expirationDate = self.DatePicker.date
             
+            //add notification
+            let content = UNMutableNotificationContent()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM"
+            content.title = "\(newDate.name)"
+            content.body = "Your item expires on: \(dateFormatter.string(from: newDate.expirationDate))"
+            
+            // Configure the recurring date.
+            var dateComponents = DateComponents()
+            dateComponents.calendar = Calendar.current
+            
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.day], from: DatePicker.date)
+            let dayOfMonth = components.day
+            let dateFormatter1 = DateFormatter()
+            dateFormatter1.dateFormat = "MM"
+            let monthString = dateFormatter.string(from: DatePicker.date)
+            
+            dateComponents.day = dayOfMonth // Tuesday
+            dateComponents.month = Int(monthString)   // 14:00 hours
+               
+            // Create the trigger as a repeating event.
+            let trigger = UNCalendarNotificationTrigger(
+                     dateMatching: dateComponents, repeats: false)
+            
+            let uuidString = UUID().uuidString
+            let request = UNNotificationRequest(identifier: uuidString,
+                        content: content, trigger: trigger)
+
+            // Schedule the request with the system.
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.add(request) { (error) in}
+            
+            //add new item and reset
             let mainVC = delegate1 as! DateAdder
             mainVC.addDate(added:newDate)
             newDate = MyDate()
