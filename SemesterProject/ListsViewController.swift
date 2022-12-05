@@ -12,10 +12,6 @@ protocol ListAdder {
     func addList()
 }
 
-// lists
-var listNames:[String] = []
-var items:[[String]] = []
-
 class ListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListAdder {
     // IB outlets
     @IBOutlet weak var listsLabel: UILabel!
@@ -45,7 +41,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listNames.count
+        return currentUser.listNames.count
     }
     
     // cells
@@ -53,16 +49,16 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
         cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
-        cell.textLabel?.text = listNames[row]
+        cell.textLabel?.text = currentUser.listNames[row]
         return cell
     }
     
     // delete rows
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            listNames.remove(at: indexPath.row)
+            currentUser.listNames.remove(at: indexPath.row)
             listsTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-            items.remove(at: indexPath.row)
+            currentUser.items.remove(at: indexPath.row)
         }
     }
     
@@ -79,7 +75,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
            let nextVC = segue.destination as? ShowListViewController,
            let listIndex = listsTableView.indexPathForSelectedRow?.row {
             nextVC.delegate = self
-            nextVC.listName = listNames[listIndex]
+            nextVC.listName = currentUser.listNames[listIndex]
         }
     }
     

@@ -8,23 +8,16 @@
 import UIKit
 import CoreData
 
-
-/*class Notification {
-
+/*
+class Notification {
+ 
     var food: String
-
-    
-
+ 
     init(foodItem:String){
-
         self.food = foodItem
-
     }
-
-    
-
+ 
 }
-
 */
 
 let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -50,6 +43,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        coreData()
         checkDarkMode()
         tableView.reloadData()
     }
