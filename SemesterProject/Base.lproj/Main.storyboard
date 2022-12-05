@@ -39,9 +39,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUy-OZ-98j">
                                 <rect key="frame" x="20" y="220" width="371" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Button" image="FMN Logo"/>
                                 <connections>
-                                    <action selector="fadeOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GHD-He-IdG"/>
+                                    <action selector="recognizeTapGesture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OP0-wc-jYG"/>
+                                    <outletCollection property="gestureRecognizers" destination="8Q7-sy-7P6" appends="YES" id="dRe-Ll-lfj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,6 +56,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8Q7-sy-7P6"/>
             </objects>
             <point key="canvasLocation" x="30" y="-151"/>
         </scene>
@@ -1434,9 +1437,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="zbA-Gz-BRL"/>
-        <segue reference="Cwq-C7-Ygt"/>
-        <segue reference="QfV-RL-cww"/>
-        <segue reference="O3h-62-XEH"/>
+        <segue reference="UVG-gp-U8y"/>
+        <segue reference="pSc-b5-leB"/>
+        <segue reference="0Zj-we-iz5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="FMN Image Logo" width="360" height="608"/>
