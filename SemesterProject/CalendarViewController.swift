@@ -83,7 +83,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 if fetchedResults.count > 0 {
                     for result:AnyObject in fetchedResults {
-                        if result.objectID == toDelete.dateID{
+                        if result.name == toDelete.name{
                             context.delete(result as! NSManagedObject)
                         }
                     }
