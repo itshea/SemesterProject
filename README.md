@@ -63,6 +63,6 @@ Minor Elements used
 | Profile path | Allow user to edit user profile, upload profile picture from camera or photo library, add allergies or dietary restrictions | Sarah (100%) |
 | Logo animation | Design app logo and trigger animation from tap gesture recpgnition | Iris (100%) |
 | Calendar (home tab) | Shows which items will expire on the date picked, allows user to add grocery items to calendar | Hana (100%) |
-| Notifications tab | Shows table of entered items expiring soon | Hana (80%), Iris (20%) |
+| Notifications tab | Shows table of entered items expiring soon | Hana (50%), Iris (50%) |
 | Lists tab | Allows user to create different lists and add items to each list as a checklist | Jennifer (100%) |
 
