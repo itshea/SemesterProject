@@ -92,9 +92,44 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
             foodItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
+            let toDelete = foodItems.remove(at: indexPath.row)
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
+            var fetchedResults:[NSManagedObject]
+            
+            do {
+                try fetchedResults = newContext.fetch(request) as! [NSManagedObject]
+                
+                if fetchedResults.count > 0 {
+                    for result:AnyObject in fetchedResults {
+                        if result.name == toDelete{
+                            newContext.delete(result as! NSManagedObject)
+                        }
+                    }
+                }
+                saveContext()
+                
+            } catch {
+                // if an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
         }
     }
-    
+
+        
+            func saveContext () {
+                if context.hasChanges {
+                    do {
+                        try context.save()
+                    } catch {
+                        let nserror = error as NSError
+                        NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+            }
+
     func coreData() {
         let fetchedResults = retrieveDates()
         
@@ -103,7 +138,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         for NewItem in fetchedResults {
             let expDate = NewItem.value(forKey: "expirationDate") as! Date
             if expDate > today {
-                self.foodItems.append(NewItem.value(forKey: "name") as! String)
+                let itemName = NewItem.value(forKey: "name") as! String
+                if foodItems.contains(itemName) == false{
+                    foodItems.append(itemName)
+                }
             }
         }
     }
