@@ -203,19 +203,19 @@ class SettingsViewController: UIViewController {
     
     func updateFontSize(resize: CGFloat) {
         // set bold fonts
-        settingsLabel.font = UIFont.boldSystemFont(ofSize: resize*45)
-        profileLabel.font = UIFont.boldSystemFont(ofSize: resize*20)
-        notificationsLabel.font = UIFont.boldSystemFont(ofSize: resize*20)
-        displayLabel.font = UIFont.boldSystemFont(ofSize: resize*20)
+        settingsLabel.font = UIFont(name: "Helvetica-Bold", ofSize: resize*50)
+        profileLabel.font = UIFont(name: "Helvetica-Bold", ofSize: resize*30)
+        notificationsLabel.font = UIFont(name: "Helvetica-Bold", ofSize: resize*30)
+        displayLabel.font = UIFont(name: "Helvetica-Bold", ofSize: resize*30)
         // set non-bold fonts
-        changePassButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        muteNotificationsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        notificationButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        darkModeLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        colorSchemeLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        fontSizeLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        colorSchemeButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        logOutButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        changePassButton.titleLabel?.font = UIFont(name: "Symbol", ofSize: resize*20)
+        muteNotificationsLabel.font = UIFont(name: "Symbol", ofSize: resize*20)
+        notificationButton.titleLabel?.font = UIFont(name: "Symbol", ofSize: resize*20)
+        darkModeLabel.font = UIFont(name: "Symbol", ofSize: resize*20)
+        colorSchemeLabel.font = UIFont(name: "Symbol", ofSize: resize*20)
+        fontSizeLabel.font = UIFont(name: "Symbol", ofSize: resize*20)
+        colorSchemeButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", ofSize: resize*17)
+        logOutButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", ofSize: resize*25)
     }
     
     @IBAction func logOutPressed(_ sender: Any) {
