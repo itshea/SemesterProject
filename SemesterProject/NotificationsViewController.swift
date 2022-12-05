@@ -114,9 +114,9 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
 
         
             func saveContext () {
-                if context.hasChanges {
+                if newContext.hasChanges {
                     do {
-                        try context.save()
+                        try newContext.save()
                     } catch {
                         let nserror = error as NSError
                         NSLog("Unresolved error \(nserror), \(nserror.userInfo)")

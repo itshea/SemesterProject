@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import UserNotifications
 
 class AddMyItemViewController: UIViewController {
 
@@ -21,8 +21,11 @@ class AddMyItemViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var itemName: UITextField!
     
+    let userNotificationCenter = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.requestNotificationAuthorization()
         checkDarkMode()
         updateColor()
         updateFontSize(resize:currentSettings.fontResize)
@@ -39,6 +42,37 @@ class AddMyItemViewController: UIViewController {
         newDate.expirationDate = chosendate
     }
     
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
+        self.userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
+            if let error = error {
+                print("Error: ", error)
+            }
+        }
+    }
+
+    func sendNotification() {
+        let notificationContent = UNMutableNotificationContent()
+
+        // Add the content to the notification content
+        notificationContent.title = "Item added"
+        notificationContent.body = "You have added \(itemName.text)"
+        notificationContent.badge = NSNumber(value: 3)
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                        repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "testNotification",
+                                                content: notificationContent,
+                                                trigger: trigger)
+            
+        userNotificationCenter.add(request) { (error) in
+                if let error = error {
+                    print("Notification Error: ", error)
+                }
+        }
+    }
+        
     
     @IBAction func newDoneButton(_ sender: Any) {
         if itemName.text == nil {
@@ -89,6 +123,7 @@ class AddMyItemViewController: UIViewController {
             let notificationCenter = UNUserNotificationCenter.current()
             notificationCenter.add(request) { (error) in}
             
+            sendNotification()
             //add new item and reset
             let mainVC = delegate1 as! DateAdder
             mainVC.addDate(added:newDate)
