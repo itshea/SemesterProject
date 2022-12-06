@@ -116,6 +116,7 @@ class SignUpViewController: UIViewController {
         user.setValue(currentUser.dietList, forKey: "dietList")
         user.setValue(currentUser.listNames, forKey: "listNames")
         user.setValue(currentUser.items, forKey: "items")
+        user.setValue(currentUser.items, forKey: "itemList")
         
         saveContext()
         

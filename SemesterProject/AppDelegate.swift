@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+    private func application(_ application: UIApplication, didReceive notification: UNNotificationRequest) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
     // MARK: UISceneSession Lifecycle

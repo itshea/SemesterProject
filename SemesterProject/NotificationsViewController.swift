@@ -4,19 +4,17 @@
 //
 //  Created by Iris Shea on 11/29/22.
 //
-
 import UIKit
 import CoreData
 
-/*
-class Notification {
- 
+
+/*class Notification {
     var food: String
- 
+    
     init(foodItem:String){
         self.food = foodItem
     }
- 
+    
 }
 */
 
@@ -33,7 +31,6 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
 
     // create an array of names of food items
     public var foodItems:[String] = []// [String]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         coreData()
@@ -43,7 +40,6 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        coreData()
         checkDarkMode()
         tableView.reloadData()
     }
@@ -64,10 +60,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MyTableViewCell
         cell.addButton.setTitleColor(currentSettings.colorScheme, for: .normal)
-        cell.addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
+        cell.addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*20))
         // changes the text based on food item
         cell.foodLabel.text = "Expiring soon: \(self.foodItems[indexPath.row])"
-        cell.foodLabel.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
+        cell.foodLabel.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*20))
         return cell
     }
 
@@ -82,46 +78,39 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.endUpdates()
-            let toDelete = foodItems.remove(at: indexPath.row)
+            let toDelete = foodItems[indexPath.row]
             foodItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
             
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyUser")
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
             var fetchedResults:[NSManagedObject]
-            
+                        
             do {
-                try fetchedResults = newContext.fetch(request) as! [NSManagedObject]
-                
-                let user = fetchedResults[0]
-                currentUser.itemList = user.value(forKey: "itemList") as! [MyDate]
-                
-                if currentUser.itemList.count > 0 {
-                    for foodItem in currentUser.itemList{
-                        if foodItem.name == toDelete{
-                            if let itemToRemoveIndex = currentUser.itemList.index(of: foodItem) {
-                                    currentUser.itemList.remove(at: itemToRemoveIndex)
-                                }
-                    }
-                }
+                try fetchedResults = context.fetch(request) as! [NSManagedObject]
+                if fetchedResults.count > 0 {
+                    for result:AnyObject in fetchedResults {
+                        if result.name == toDelete{
+                            context.delete(result as! NSManagedObject)
+                            }
+                        }
                 }
                 saveContext()
-                
-            } catch {
+                            
+                } catch {
                 // if an error occurs
                 let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
+                }
             }
         }
-    }
 
         
             func saveContext () {
-                if newContext.hasChanges {
+                if context.hasChanges {
                     do {
-                        try newContext.save()
+                        try context.save()
                     } catch {
                         let nserror = error as NSError
                         NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -132,15 +121,12 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     func coreData() {
         let fetchedResults = retrieveDates()
         
-        let user = fetchedResults[0]
-        currentUser.itemList = user.value(forKey: "itemList") as! [MyDate]
-        
         let today = Date(timeInterval: 0, since: Date())
         
-        for NewItem in currentUser.itemList {
-            let expDate = NewItem.expirationDate!
+        for NewItem in fetchedResults {
+            let expDate = NewItem.value(forKey: "expirationDate") as! Date
             if expDate > today {
-                let itemName = NewItem.name as! String
+                let itemName = NewItem.value(forKey: "name") as! String
                 if foodItems.contains(itemName) == false{
                     foodItems.append(itemName)
                 }
@@ -150,7 +136,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func retrieveDates() -> [NSManagedObject] {
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyUser")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
         var fetchedResults:[NSManagedObject]? = nil
         
         do {

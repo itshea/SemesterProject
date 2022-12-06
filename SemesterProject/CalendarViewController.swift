@@ -20,6 +20,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var todayList:[MyDate] = []
     let textCellIdentifier = "dateIdentifier"
+    public var dateList:[MyDate] = []
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var selectDate: UIDatePicker!
@@ -40,7 +41,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         pastOrderTable.register(MyCalendarTableViewCell.self, forCellReuseIdentifier: "dateIdentifier")
         pastOrderTable.delegate = self
         pastOrderTable.dataSource = self
-    
         coreData()
         // Do any additional setup after loading the view.
     }
@@ -70,33 +70,31 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let toDelete = todayList.remove(at: indexPath.row)
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            //let toDelete = todayList[row].name
             todayList.remove(at: indexPath.row)
-            pastOrderTable.deleteRows(at: [indexPath], with: .fade)
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
-            var fetchedResults:[NSManagedObject]
+            pastOrderTable.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
             
-            do {
-                try fetchedResults = context.fetch(request) as! [NSManagedObject]
-                
-                if fetchedResults.count > 0 {
-                    for result:AnyObject in fetchedResults {
-                        if result.name == toDelete.name{
-                            context.delete(result as! NSManagedObject)
+            
+            //let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
+            //var fetchedResults:[NSManagedObject]
+                        
+            //do {
+                //try fetchedResults = context.fetch(request) as! [NSManagedObject]
+                //if fetchedResults.count > 0 {
+                    //for result:AnyObject in fetchedResults {
+                        //if result.name == toDelete{
+                            //context.delete(result as! NSManagedObject)
+                            }
                         }
-                    }
-                }
-                saveContext()
-                
-            } catch {
+                //saveContext()
+                            
+                //} catch {
                 // if an error occurs
-                let nserror = error as NSError
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                abort()
-            }        }
-    }
-    
+                //let nserror = error as NSError
+                //NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                //abort()
+        
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyDateSegue",
@@ -133,69 +131,73 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         dateLabel.textColor = currentSettings.colorScheme
         addItem.setTitleColor(currentSettings.colorScheme, for: .normal)
     }
-
+    
     func coreData() {
-        let fetchedResults = retrieveDates()
-        let user = fetchedResults[0]
-        currentUser.itemList = user.value(forKey: "itemList") as! [MyDate]
-    }
-    
-    @IBAction func changedate(sender: AnyObject) {
-        let chosendate = self.selectDate.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/dd/YYYY"
-        dateLabel.text = "\(dateFormatter.string(from: chosendate))"
-        populateToday()
-        self.pastOrderTable.reloadData()
-    }
-    
-    func addDate(added: MyDate) {
-        currentUser.itemList.append(added)
-        self.pastOrderTable.reloadData()
+            let fetchedResults = retrieveDates()
+            
+            for NewItem in fetchedResults {
+                let thisDate = MyDate()
+                thisDate.name = NewItem.value(forKey: "name") as! String
+                thisDate.expirationDate = NewItem.value(forKey: "expirationDate") as! Date
+                thisDate.dateID = NewItem.objectID
+                dateList.append(thisDate)
+                }
+        }
         
-        let storedDate = NSEntityDescription.insertNewObject(forEntityName: "MyUser", into: context)
+        @IBAction func changedate(sender: AnyObject) {
+            let chosendate = self.selectDate.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "M/dd/YYYY"
+            dateLabel.text = "\(dateFormatter.string(from: chosendate))"
+            populateToday()
+            self.pastOrderTable.reloadData()
+        }
         
-        storedDate.setValue(added, forKey: "itemList")
+        func addDate(added: MyDate) {
+            dateList.append(added)
+            self.pastOrderTable.reloadData()
+            
+            let storedDate = NSEntityDescription.insertNewObject(forEntityName: "NewItem", into: context)
+            
+            storedDate.setValue(added.name, forKey: "name")
+            storedDate.setValue(added.expirationDate, forKey: "expirationDate")
+            
+            // commit the changes
+            saveContext()
+            
+        }
         
-        // commit the changes
-        saveContext()
-        
-    }
-    
-    func saveContext () {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+        func saveContext () {
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
             }
         }
-    }
-    
-    func retrieveDates() -> [NSManagedObject] {
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyUser")
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = context.fetch(request) as? [NSManagedObject]
-        } catch {
-            // if an error occurs
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
+        func retrieveDates() -> [NSManagedObject] {
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewItem")
+            var fetchedResults:[NSManagedObject]? = nil
+            
+            do {
+                try fetchedResults = context.fetch(request) as? [NSManagedObject]
+            } catch {
+                // if an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+            
+            return(fetchedResults)!
+            
         }
-        
-        
-        
-        return(fetchedResults)!
-        
-    }
-    
     func populateToday() {
         todayList = []
-        for myItem in currentUser.itemList{
+        for myItem in dateList{
             let dateFormatter1 = DateFormatter()
             dateFormatter1.dateFormat = "dd/MM/YY"
             if dateFormatter1.string(from: self.selectDate.date) == dateFormatter1.string(from: myItem.expirationDate){

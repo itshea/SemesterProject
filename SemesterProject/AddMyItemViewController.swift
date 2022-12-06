@@ -66,7 +66,7 @@ class AddMyItemViewController: UIViewController {
                                                 content: notificationContent,
                                                 trigger: trigger)
             
-        userNotificationCenter.add(request) { (error) in
+        UNUserNotificationCenter.current().add(request) { (error) in
                 if let error = error {
                     print("Notification Error: ", error)
                 }
