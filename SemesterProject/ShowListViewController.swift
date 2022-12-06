@@ -43,8 +43,8 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func updateFontSize(resize: CGFloat) {
-        listNameLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*20))
-        addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        listNameLabel.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*20))
+        addButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*17))
 
     }
     
@@ -58,6 +58,7 @@ class ShowListViewController: UIViewController, UITableViewDataSource, UITableVi
         let row = indexPath.row
         let cell = listTableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
 //        cell.textLabel?.textColor = currentSettings.colorScheme
+        cell.textLabel?.font = UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*17))
         cell.textLabel?.text = currentUser.items[listIndex][row]
         cell.tintColor = currentSettings.colorScheme
         return cell

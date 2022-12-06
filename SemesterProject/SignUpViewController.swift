@@ -55,6 +55,8 @@ class SignUpViewController: UIViewController {
                 self.setUserDefaults()
                 self.signUpSuccess = true
 //                self.performSegue(withIdentifier: "HomeSegue3", sender: nil)
+                self.saveCoreData()
+                self.loadCoreData()
             }
         }
     }

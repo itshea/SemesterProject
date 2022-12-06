@@ -38,9 +38,9 @@ class ListItemViewController: UIViewController {
     }
     
     func updateFontSize(resize: CGFloat) {
-        newItemLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        addButton.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
-        textField.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+        newItemLabel.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*24))
+        addButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*17))
+        textField.font = UIFont(name: "Symbol", size: CGFloat(resize*16))
     }
     
     // add item

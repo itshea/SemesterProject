@@ -76,7 +76,7 @@ class AddAllergyViewController: UIViewController, UIPickerViewDelegate, UIPicker
         foodLabel.font =
         UIFont(name: "Symbol", size: CGFloat(resize*17))
         severityLabel.font = UIFont(name: "Symbol", size: CGFloat(resize*17))
-        foodTextField.font = UIFont(name: "Symbol", size: CGFloat(resize*17))
+        foodTextField.font = UIFont(name: "Symbol", size: CGFloat(resize*16))
         warningLabel.font = UIFont(name: "Symbol", size: CGFloat(resize*17))
         addAllergyButton.titleLabel?.font = UIFont(name: "Helvetic-Bold", size: CGFloat(resize*20))
     }

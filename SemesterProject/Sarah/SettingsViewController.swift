@@ -227,7 +227,7 @@ class SettingsViewController: UIViewController {
     func updateNavBar() {
         let attributes = [
             NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: currentSettings.fontResize*17)
+            NSAttributedString.Key.font: UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*17))
         ]
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme

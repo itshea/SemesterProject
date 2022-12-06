@@ -59,7 +59,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
-        cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
+        cell.textLabel?.font = UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*17))
         let row = indexPath.row
         let newDate = todayList[row]
     
@@ -106,7 +106,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     func updateNavBar() {
         let attributes = [
             NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: currentSettings.fontResize*17)
+            NSAttributedString.Key.font: UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*17))
         ]
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme
@@ -122,9 +122,9 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func updateFontSize(resize: CGFloat) {
             // update bold fonts
-            dateLabel.font = UIFont.boldSystemFont(ofSize: resize*40)
+            dateLabel.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*40))
             // update non-bold fonts
-            addItem.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(resize*17))
+            addItem.titleLabel?.font = UIFont(name: "Symbol", size: CGFloat(resize*17))
     }
     
     func updateColor() {
