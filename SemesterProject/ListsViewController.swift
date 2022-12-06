@@ -48,7 +48,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellID, for: indexPath)
-        cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(currentSettings.fontResize*17))
+        cell.textLabel?.font = UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*17))
         cell.textLabel?.text = currentUser.listNames[row]
         return cell
     }
@@ -87,7 +87,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func updateNavBar() {
         let attributes = [
             NSAttributedString.Key.foregroundColor: currentSettings.colorScheme,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: currentSettings.fontResize*17)
+            NSAttributedString.Key.font: UIFont(name: "Symbol", size: CGFloat(currentSettings.fontResize*17))
         ]
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController!.navigationBar.tintColor = currentSettings.colorScheme
@@ -99,7 +99,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func updateFontSize(resize: CGFloat){
-        listsLabel.font = UIFont.systemFont(ofSize: CGFloat(resize*22))
+        listsLabel.font = UIFont(name: "Helvetica-Bold", size: CGFloat(resize*22))
     }
     
     func checkDarkMode() {

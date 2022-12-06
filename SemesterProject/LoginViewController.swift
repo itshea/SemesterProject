@@ -49,6 +49,7 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "HomeSegueIdentifier2", sender: nil)
                 self.loadUserDefaults()
                 self.setUpUser()
+                
             }
         }
     }
@@ -102,4 +103,5 @@ class LoginViewController: UIViewController {
             currentSettings.colorScheme = purpleColor
         }
     }
+    
 }

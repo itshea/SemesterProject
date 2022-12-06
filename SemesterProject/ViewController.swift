@@ -18,6 +18,10 @@ class ViewController: UIViewController {
         print("view did load")
         print(Array(UserDefaults.standard.dictionaryRepresentation()))
         checkForAutoLogin()
+        
+        // tap gesture
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(recognizeTapGesture(recognizer:)))
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,7 +73,7 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func recognizeTapGesture(_ recognizer: UITapGestureRecognizer) {
+    @IBAction func recognizeTapGesture(recognizer: UITapGestureRecognizer) {
             self.logoButton.alpha = 1.0
             
             UIView.animate(
@@ -78,7 +82,7 @@ class ViewController: UIViewController {
                     self.logoButton.alpha = 0.0
                 }
             )
-            sleep(2)
+            sleep(1)
             
             UIView.animate(
                 withDuration: 3.0,
